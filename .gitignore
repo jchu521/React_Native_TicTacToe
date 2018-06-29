@@ -63,3 +63,4 @@ buck-out/
 /android/.gradle
 /android/app/build
 /ios/bundle
+/photoshop
