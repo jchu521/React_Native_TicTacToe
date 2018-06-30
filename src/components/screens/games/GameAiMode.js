@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Switch, TouchableOpacity } from 'react-native';
-import InputButton from '../utils/InputButton'
-import GameStyle from '../../style/GameStyle'
-import button from '../../style/button';
-import text from '../../style/text';
-import I18n from '../../language/i18n';
+import InputButton from '../../utils/InputButton'
+import GameStyle from '../../../styles/GameStyle'
+import button from '../../../styles/button';
+import text from '../../../styles/text';
+import I18n from '../../../languages/i18n';
 
 const inputButtons = [
     [0, 1, 2],
