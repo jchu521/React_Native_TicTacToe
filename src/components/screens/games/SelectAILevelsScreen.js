@@ -15,18 +15,14 @@ export default class SelectAILevelsScreen extends Component {
 
     return(
       <ImageBackground source={require('../../../images/default.jpg')} style={views.container}>
+        <View style={views.container}>
+          <Text h1 style={{ textAlign:'center'}} >Tic Tac Toe</Text>
+        </View>
         <View style={[buttons.buttonGroup]}>
-          <View style={[
-            views.container,
-            {
-              backgroundColor:'#EC4B74',
-              width:'100%',
-              marginBottom:'40%'
-            }
-          ]}>
+          <View style={[views.container, views.buttonGroupView]}>
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('AILevels.selectLevel')}</Text>
           </View>
-          <View style={[views.container, {flex: 2}]}>
+          <View style={[views.container, {flex: 4}]}>
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,

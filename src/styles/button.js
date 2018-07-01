@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-
+import { Colors } from './colors'
 
 const button = StyleSheet.create({
     //Default btn
@@ -14,16 +14,15 @@ const button = StyleSheet.create({
     },
 
     buttonGroup: {
-      flex:1,
+      flex: 3,
       justifyContent:'center',
       alignItems: 'center',
       width:'80%',
-      backgroundColor:'#E8E2B3',
-      borderColor:'#B9B388',
+      backgroundColor:Colors.rice,
+      borderColor: Colors.brown,
       borderRadius: 20,
       borderWidth: 5,
       marginBottom: '10%',
-      marginTop: '40%'
     },
 
     //Home page

@@ -33,6 +33,7 @@ export default {
 
   //infoScreen
   info:{
+    info: 'Info',
     settings: 'Settings',
     leaderboard: 'Leaderboard',
     contact: 'Contact',

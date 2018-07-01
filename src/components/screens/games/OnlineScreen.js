@@ -16,26 +16,33 @@ export default class OnlineScreen extends Component {
 
     return(
       <ImageBackground source={require('../../../images/default.jpg')} style={views.container}>
-        <View style={{flex:1}}/>
-        <View style={[buttons.buttonGroup, { flex: 3, marginTop:0}]}>
-          <TouchableOpacity
-            style={[
-              buttons.DefaultBtn,
-              {backgroundColor: Colors.lightBlue}
-            ]}
-            onPress={() => navigate('AIMode', {level: 'EASY'})}
-          >
-            <Text h3 style={{color:'white'}}>{I18n.t('online.online')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              buttons.DefaultBtn,
-              {backgroundColor: Colors.lightOrange}
-            ]}
-            onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
-          >
-            <Text h3 style={{color:'white'}}>{I18n.t('online.friends')}</Text>
-          </TouchableOpacity>
+        <View style={views.container}>
+          <Text h1 style={{ textAlign:'center'}} >Tic Tac Toe</Text>
+        </View>
+        <View style={[buttons.buttonGroup]}>
+          <View style={[views.container, views.buttonGroupView, {marginBottom: 0}]}>
+            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('online.online')}</Text>
+          </View>
+          <View style={[views.container,{flex:4}]}>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightBlue}
+              ]}
+              onPress={() => navigate('AIMode', {level: 'EASY'})}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('online.online')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightOrange}
+              ]}
+              onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('online.friends')}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
     )

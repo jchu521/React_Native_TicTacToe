@@ -15,34 +15,42 @@ export default class OnlineScreen extends Component {
 
     return(
       <ImageBackground source={require('../../images/default.jpg')} style={views.container}>
+        <View style={views.container}>
+          <Text h1 style={{ textAlign:'center'}} >Tic Tac Toe</Text>
+        </View>
         <View style={[buttons.buttonGroup]}>
-          <TouchableOpacity
-            style={[
-              buttons.DefaultBtn,
-              {backgroundColor: Colors.blue}
-            ]}
-            onPress={() => navigate('AIMode', {level: 'EASY'})}
-          >
-            <Text h3 style={{color:'white'}}>{I18n.t('info.settings')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              buttons.DefaultBtn,
-              {backgroundColor: Colors.lightGreen}
-            ]}
-            onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
-          >
-            <Text h3 style={{color:'white'}}>{I18n.t('info.leaderboard')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              buttons.DefaultBtn,
-              {backgroundColor: Colors.lightPurple}
-            ]}
-            onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
-          >
-            <Text h3 style={{color:'white'}}>{I18n.t('info.contact')}</Text>
-          </TouchableOpacity>
+          <View style={[views.container, views.buttonGroupView, {marginBottom: 0}]}>
+            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('info.info')}</Text>
+          </View>
+          <View style={[views.container,{flex:4}]}>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.blue}
+              ]}
+              onPress={() => navigate('AIMode', {level: 'EASY'})}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('info.settings')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightGreen}
+              ]}
+              onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('info.leaderboard')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('info.contact')}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
     )

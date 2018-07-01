@@ -33,6 +33,7 @@ export default {
 
   //infoScreen
   info:{
+    info: '訊息',
     settings: '設置',
     leaderboard: '排名',
     contact: '聯絡',
