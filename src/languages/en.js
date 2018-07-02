@@ -1,7 +1,8 @@
 export default {
   game: {
-    hard: 'Hard',
-    easy: 'Easy',
+    hard: 'Hard Mode',
+    medium: 'Medium Mode',
+    easy: 'Easy Mode',
     reset: 'Reset',
     aiMode: 'Ai Mode',
     failed: 'You failed!',

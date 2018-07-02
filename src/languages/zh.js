@@ -1,6 +1,7 @@
 export default {
   game: {
     hard: '困难',
+    medium: '普通',
     easy: '容易',
     reset: '重置',
     aiMode: '智能模式',

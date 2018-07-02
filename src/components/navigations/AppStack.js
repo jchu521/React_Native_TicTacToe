@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation';
 
 import MainScreen from '../screens/MainScreen';
 import AIModeScreen from '../screens/games/GameAiMode';
+import OnlineGameScreen from '../screens/games/GameOnline';
 import SelectGameModeScreen from '../navigations/bottomTabNavigator';
 
 import React from 'react';
@@ -33,7 +34,17 @@ const app = createStackNavigator({
     )
   },
 
+  OnlineMode: {
+    screen: OnlineGameScreen,
+    navigationOptions: ({navigation}) =>(
+      {
+        title: 'Online Mode',
+      }
+    )
+  },
+
 },{
+  // initialRouteName: 'OnlineMode'
 });
 
 export default app;
