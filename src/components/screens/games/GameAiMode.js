@@ -40,7 +40,7 @@ export default class GameAiMode extends React.Component {
           this.setState({modeTitle: 'Easy Mode', gameLevel: 5});
           break;
         case 'MEDIUM':
-          this.setState({modeTitle: 'Medium Mode', gameLevel: 3});
+          this.setState({modeTitle: 'Medium Mode', gameLevel: 2});
           break;
         case 'HARD':
           this.setState({modeTitle: 'Hard Mode', gameLevel: 1});
@@ -169,6 +169,8 @@ export default class GameAiMode extends React.Component {
     }
 
 	_calculateWeight(squares) {
+      let role = this.state.mark ? 'O' : 'X';
+      let opponentRole = this.state.mark ? 'X' : 'O';
 		  const lines = [
 			[0, 1, 2],
 			[3, 4, 5],
@@ -191,10 +193,10 @@ export default class GameAiMode extends React.Component {
 		  refVals['abc'] = 1;
 
 		  for ( let i = 0; i < squares.length; i++){
-			  if(squares[i] === 'O'){
+			  if(squares[i] === role){
 				  testArr[i] = 'c';
 			  }
-			  else if(squares[i] === 'X'){
+			  else if(squares[i] === opponentRole){
 				  testArr[i] = 'b';
 			  }
 			  else{
