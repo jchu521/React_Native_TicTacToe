@@ -17,7 +17,7 @@ export default class OnlineScreen extends Component {
     return(
       <ImageBackground source={require('../../../images/default.jpg')} style={views.container}>
         <View style={views.container}>
-          <Text h1 style={{ textAlign:'center'}} >Tic Tac Toe</Text>
+          <Text h1>Tic Tac Toe</Text>
         </View>
         <View style={[buttons.buttonGroup]}>
           <View style={[views.container, views.buttonGroupView, {marginBottom: 0}]}>

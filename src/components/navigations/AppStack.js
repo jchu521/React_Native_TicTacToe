@@ -28,10 +28,12 @@ const app = createStackNavigator({
     screen: AIModeScreen,
     navigationOptions: ({navigation}) =>(
       {
-        header: null,
+        title: 'AI Mode',
       }
     )
   },
+
+},{
 });
 
 export default app;
