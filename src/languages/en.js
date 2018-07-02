@@ -37,7 +37,11 @@ export default {
     info: 'Info',
     settings: 'Settings',
     leaderboard: 'Leaderboard',
-    contact: 'Contact',
+    contact: 'Contact us',
   },
 
+  contact:{
+    submit:'Submit',
+    form:'Form',
+  }
 };

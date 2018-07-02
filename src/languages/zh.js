@@ -40,4 +40,8 @@ export default {
     contact: '聯絡',
   },
 
+  contact:{
+    submit:'提交',
+    form:'單子',
+  }
 };

@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 
 import MainScreen from '../screens/MainScreen';
+import ContactScreen from '../screens/ContactScreen';
 import AIModeScreen from '../screens/games/GameAiMode';
 import OnlineGameScreen from '../screens/games/GameOnline';
 import SelectGameModeScreen from '../navigations/bottomTabNavigator';
@@ -43,8 +44,16 @@ const app = createStackNavigator({
     )
   },
 
+  Contact: {
+    screen: ContactScreen,
+    navigationOptions: ({navigation}) =>(
+      {
+        title: 'Contact Us',
+      }
+    )
+  }
 },{
-  // initialRouteName: 'OnlineMode'
+   // initialRouteName: 'Contact'
 });
 
 export default app;
