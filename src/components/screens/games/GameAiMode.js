@@ -2,15 +2,16 @@ import React from 'react';
 import { ImageBackground, StyleSheet, View, Switch, TouchableOpacity, Image } from 'react-native';
 import { Text } from 'react-native-elements';
 import I18n from '../../../languages/i18n';
-import InputButton from '../../utils/InputButton'
 import SwitchSelector from 'react-native-switch-selector';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Modal from 'react-native-modalbox';
 
-import GameStyle from '../../../styles/GameStyle'
+import {CheckWinner, _displayMessage} from '../../utils/checkWinner';
+import InputButton from '../../utils/InputButton';
+import GameStyle from '../../../styles/GameStyle';
 import button from '../../../styles/button';
 import text from '../../../styles/text';
-import { Colors } from '../../../styles/colors'
+import { Colors } from '../../../styles/colors';
 
 const inputButtons = [
     [0, 1, 2],
@@ -22,9 +23,6 @@ export default class GameAiMode extends React.Component {
     state = {
         squares: Array(9).fill(null),
         xIsNext: false,
-        // isEasyMode: false,
-        // isMediumMode: false,
-        // isHardMode: false,
         mark: false,
         isOpen: false,
         message:null,
@@ -37,13 +35,13 @@ export default class GameAiMode extends React.Component {
 
       switch (level) {
         case 'EASY':
-          this.setState({modeTitle: 'Easy Mode', gameLevel: 5});
+          this.setState({modeTitle: I18n.t('game.easy'), gameLevel: 5});
           break;
         case 'MEDIUM':
-          this.setState({modeTitle: 'Medium Mode', gameLevel: 2});
+          this.setState({modeTitle: I18n.t('game.medium'), gameLevel: 2});
           break;
         case 'HARD':
-          this.setState({modeTitle: 'Hard Mode', gameLevel: 1});
+          this.setState({modeTitle: I18n.t('game.hard'), gameLevel: 1});
           break;
       }
     }
@@ -56,19 +54,19 @@ export default class GameAiMode extends React.Component {
       });
     }
 
-    _displayMessage = (message) => {
-      switch (message) {
-        case 'Win':
-          this.setState({message: I18n.t('game.success'), isOpen:true});
-          break;
-        case 'Loss':
-          this.setState({message: I18n.t('game.failed'), isOpen:true});
-          break;
-        case 'Draw':
-          this.setState({message: I18n.t('game.draw'), isOpen:true});
-          break;
-      }
-    }
+    // _displayMessage = (message) => {
+    //   switch (message) {
+    //     case 'Win':
+    //       this.setState({message: I18n.t('game.success'), isOpen:true});
+    //       break;
+    //     case 'Loss':
+    //       this.setState({message: I18n.t('game.failed'), isOpen:true});
+    //       break;
+    //     case 'Draw':
+    //       this.setState({message: I18n.t('game.draw'), isOpen:true});
+    //       break;
+    //   }
+    // }
 
     render() {
         const { mark, message, isOpen, modeTitle } = this.state;
@@ -141,32 +139,32 @@ export default class GameAiMode extends React.Component {
         return views;
     }
 
-    _calculateWinner(squares) {
-      const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-      ];
-
-      for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-          const { mark } = this.state;
-
-          mark ?
-            (squares[a] === 'X'? this._displayMessage('Win') : this._displayMessage('Loss'))
-            :(squares[a] === 'O'? this._displayMessage('Win') : this._displayMessage('Loss'))
-
-          return squares[a];
-        }
-      }
-      return null;
-    }
+    // _calculateWinner(squares) {
+    //   const lines = [
+    //     [0, 1, 2],
+    //     [3, 4, 5],
+    //     [6, 7, 8],
+    //     [0, 3, 6],
+    //     [1, 4, 7],
+    //     [2, 5, 8],
+    //     [0, 4, 8],
+    //     [2, 4, 6]
+    //   ];
+    //
+    //   for (let i = 0; i < lines.length; i++) {
+    //     const [a, b, c] = lines[i];
+    //     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+    //       const { mark } = this.state;
+    //
+    //       mark ?
+    //         (squares[a] === 'X'? this._displayMessage('Win') : this._displayMessage('Loss'))
+    //         :(squares[a] === 'O'? this._displayMessage('Win') : this._displayMessage('Loss'))
+    //
+    //       return squares[a];
+    //     }
+    //   }
+    //   return null;
+    // }
 
 	_calculateWeight(squares) {
       let role = this.state.mark ? 'O' : 'X';
@@ -256,14 +254,23 @@ export default class GameAiMode extends React.Component {
 
     _autoClickForAi(){
 	    const squares = this.state.squares;
-        if(this._calculateWinner(squares)){
+        if(m = CheckWinner(squares, this.state.mark)){
+          this.setState({isOpen:true, message: m});
           return ;
         }
+        // if(this._calculateWinner(squares)){
+        //   return ;
+        // }
         let pos = this._calculateWeight(squares);
 
         console.log(pos);
+        // if(squares[pos]){
+        //     this._displayMessage('Draw');
+        //     return;
+        // }
         if(squares[pos]){
-            this._displayMessage('Draw');
+            m = _displayMessage('Draw');
+            this.setState({isOpen:true, message: m});
             return;
         }
         squares[pos] = this.state.xIsNext?'X':'O';
@@ -271,7 +278,11 @@ export default class GameAiMode extends React.Component {
             squares: squares,
             xIsNext: !this.state.xIsNext,
         })
-        if(this._calculateWinner(squares)){
+        // if(this._calculateWinner(squares)){
+        //   return ;
+        // }
+        if(m = CheckWinner(squares, this.state.mark)){
+          this.setState({isOpen:true, message: m});
           return ;
         }
     }
@@ -279,16 +290,23 @@ export default class GameAiMode extends React.Component {
     _onInputButtonPressed(input) {
         const squares = this.state.squares;
 
-        if(this._calculateWinner(squares) || squares[input] ){
-            return;
+        if(CheckWinner(squares, this.state.mark) || squares[input]){
+          return ;
         }
+
+        // if(this._calculateWinner(squares) || squares[input] ){
+        //     return;
+        // }
         squares[input] = this.state.xIsNext?'X':'O';
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext
         });
 		    setTimeout(()=>{this._autoClickForAi()},100);
-        if(this._calculateWinner(squares)){
+        // if(this._calculateWinner(squares)){
+        //   return ;
+        // }
+        if(CheckWinner(squares, this.state.mark)){
           return ;
         }
     }

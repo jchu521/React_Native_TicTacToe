@@ -12,12 +12,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-native-elements": "^0.19.1",
     "react-native-i18n": "^2.0.12",
     "react-native-modalbox": "^1.5.0",
     "react-native-switch-selector": "^1.1.8",
+    "react-native-textinput-effects": "^0.4.2",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.5.5"
   },

@@ -46,7 +46,7 @@ export default class OnlineScreen extends Component {
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
               ]}
-              onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
+              onPress={() => navigate('Contact')}
             >
               <Text h3 style={{color:'white'}}>{I18n.t('info.contact')}</Text>
             </TouchableOpacity>

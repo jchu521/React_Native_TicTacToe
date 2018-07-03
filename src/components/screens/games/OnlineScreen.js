@@ -29,7 +29,7 @@ export default class OnlineScreen extends Component {
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightBlue}
               ]}
-              onPress={() => navigate('AIMode', {level: 'EASY'})}
+              onPress={() => navigate('OnlineMode')}
             >
               <Text h3 style={{color:'white'}}>{I18n.t('online.online')}</Text>
             </TouchableOpacity>

@@ -1,7 +1,8 @@
 export default {
   game: {
-    hard: 'Hard',
-    easy: 'Easy',
+    hard: 'Hard Mode',
+    medium: 'Medium Mode',
+    easy: 'Easy Mode',
     reset: 'Reset',
     aiMode: 'Ai Mode',
     failed: 'You failed!',
@@ -36,7 +37,11 @@ export default {
     info: 'Info',
     settings: 'Settings',
     leaderboard: 'Leaderboard',
-    contact: 'Contact',
+    contact: 'Contact us',
   },
 
+  contact:{
+    submit:'Submit',
+    form:'Form',
+  }
 };

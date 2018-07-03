@@ -1,6 +1,7 @@
 export default {
   game: {
     hard: '困难',
+    medium: '普通',
     easy: '容易',
     reset: '重置',
     aiMode: '智能模式',
@@ -39,4 +40,8 @@ export default {
     contact: '聯絡',
   },
 
+  contact:{
+    submit:'提交',
+    form:'單子',
+  }
 };
