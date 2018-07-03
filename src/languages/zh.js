@@ -35,13 +35,18 @@ export default {
   //infoScreen
   info:{
     info: '訊息',
-    settings: '設置',
-    leaderboard: '排名',
-    contact: '聯絡',
+    // settings: '設置',
+    // leaderboard: '排名',
+    // contact: '聯絡',
+    about:'關於',
   },
 
   contact:{
     submit:'提交',
     form:'單子',
+  },
+
+  about:{
+    authors:'開發者',
   }
 };

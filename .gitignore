@@ -58,7 +58,6 @@ buck-out/
 # Build
 
 /ios/build
-/android/
 /android/build
 /android/.gradle
 /android/app/build

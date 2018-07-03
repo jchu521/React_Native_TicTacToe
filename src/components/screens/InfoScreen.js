@@ -26,29 +26,11 @@ export default class OnlineScreen extends Component {
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
-                {backgroundColor: Colors.blue}
-              ]}
-              onPress={() => navigate('AIMode', {level: 'EASY'})}
-            >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.settings')}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                buttons.DefaultBtn,
-                {backgroundColor: Colors.lightGreen}
-              ]}
-              onPress={() => navigate('AIMode', {level: 'MEDIUM'})}
-            >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.leaderboard')}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
               ]}
-              onPress={() => navigate('Contact')}
+              onPress={() => navigate('About')}
             >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.contact')}</Text>
+              <Text h3 style={{color:'white'}}>{I18n.t('info.about')}</Text>
             </TouchableOpacity>
           </View>
         </View>

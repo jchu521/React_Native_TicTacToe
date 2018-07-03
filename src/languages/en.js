@@ -35,13 +35,18 @@ export default {
   //infoScreen
   info:{
     info: 'Info',
-    settings: 'Settings',
-    leaderboard: 'Leaderboard',
-    contact: 'Contact us',
+    // settings: 'Settings',
+    // leaderboard: 'Leaderboard',
+    // contact: 'Contact us',
+    about:'About',
   },
 
   contact:{
     submit:'Submit',
     form:'Form',
+  },
+
+  about:{
+    developers:'Developers',
   }
 };
