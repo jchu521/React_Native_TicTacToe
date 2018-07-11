@@ -42,14 +42,8 @@
 	<string/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
@@ -67,13 +61,7 @@
 		<string>Dimbo.ttf</string>
 		<string>PatuaOne-Regular.ttf</string>
 	</array>
-
-	<!-- https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http -->
-  <key>NSAppTransportSecurity</key>
-  <dict>
-    <!--Include to allow all connections (DANGER)-->
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
-  </dict>
+	<key>CodePushDeploymentKey</key>
+	<string>deployment-key-here</string>
 </dict>
 </plist>
