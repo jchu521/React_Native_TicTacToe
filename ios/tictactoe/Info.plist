@@ -67,5 +67,13 @@
 		<string>Dimbo.ttf</string>
 		<string>PatuaOne-Regular.ttf</string>
 	</array>
+
+	<!-- https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http -->
+  <key>NSAppTransportSecurity</key>
+  <dict>
+    <!--Include to allow all connections (DANGER)-->
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+  </dict>
 </dict>
 </plist>
