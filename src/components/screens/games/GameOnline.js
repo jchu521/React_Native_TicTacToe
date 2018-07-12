@@ -44,7 +44,7 @@ class GameOnline extends React.Component {
       })
       this._newGame(DeviceInfo.getUniqueID());
       this._interval = setInterval(this._heartBeatInterval, 1000);
-      console.log(I18n);
+
   }
 
 
