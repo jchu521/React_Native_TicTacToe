@@ -42,3 +42,6 @@ Another one terminal
 
 ## Authors
 Jonathan Chueh, Kevin Liu
+
+## Supervisor
+Fadi Fayez
