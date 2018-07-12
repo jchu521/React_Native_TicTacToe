@@ -8,7 +8,7 @@ const steps = (state=[], action) => {
             return steps;
 
         case C.ADD_STEP:
-            return step;
+            return false;
 
         default:
             return false;

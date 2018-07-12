@@ -55,7 +55,7 @@ class GameOnline extends React.Component {
           uuid: this.state.uuid
         });
       }else{
-        if(this.state.roundId){
+        if(this.state.roundId && this.state.roundStatus === 'playing'){
           getSteps({
             roundId: this.state.roundId,
             uuid: this.state.uuid
@@ -81,7 +81,7 @@ class GameOnline extends React.Component {
 
   _newGameHandler = (nextProps)=> {
     if(nextProps.game){
-      if(nextProps.game[0]['status'] && nextProps.game[0]['status'] == 'waiting'){
+      if(nextProps.game[0]['status'] && nextProps.game[0]['status'] === 'waiting'){
         this.setState({
           squares: Array(9).fill(null),
           roundId: nextProps.game[0]['id'],
