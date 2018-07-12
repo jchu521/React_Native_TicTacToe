@@ -35,10 +35,10 @@ Another one terminal
 * [React Redux](https://github.com/reduxjs/react-redux)
 * [Redux Thunk](https://github.com/reduxjs/redux-thunk)
 * [Redux](https://github.com/reduxjs/redux)
-* [React Native Code Push] (https://github.com/Microsoft/react-native-code-push)
-* [React Native Device Info] (https://github.com/rebeccahughes/react-native-device-info)
-* [React Native Modalbox] (https://github.com/maxs15/react-native-modalbox)
-* [React Native Switch Selector] (https://github.com/App2Sales/react-native-switch-selector)
+* [React Native Code Push](https://github.com/Microsoft/react-native-code-push)
+* [React Native Device Info](https://github.com/rebeccahughes/react-native-device-info)
+* [React Native Modalbox](https://github.com/maxs15/react-native-modalbox)
+* [React Native Switch Selector](https://github.com/App2Sales/react-native-switch-selector)
 
 ## Authors
 Jonathan Chueh, Kevin Liu
