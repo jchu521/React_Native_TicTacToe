@@ -12,8 +12,8 @@ I18n.translations = {
   'en': en,
   'zh-Hant': zh_tw,
   'zh-Hans': zh_cn,
-  'zh_tw': zh_tw,
-  'zh_cn': zh_cn,
+  'zh-TW': zh_tw,
+  'zh-CN': zh_cn,
 };
 
 export default I18n;
