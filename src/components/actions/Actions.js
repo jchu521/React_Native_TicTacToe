@@ -3,7 +3,8 @@ import C from '../constants'
 //steps
 export const getSteps = (data) => (dispatch) => {
   const { roundId, uuid } = data;
-  let url = C.stepsURL+'/'+roundId+'?uuid='+uuid;
+  let url = C.stepsURL+'/'+roundId+'?uuid='+encodeURIComponent(uuid);
+  //console.log(url);
   fetch(url, {
       headers: C.headers,
       credentials: C.credentials
@@ -60,7 +61,7 @@ export const putRoundResult = (data) => (dispatch) => {
 
 export const newGame = (data) => (dispatch) => {
     const { uuid } = data;
-    let url = C.roundsURL+'?newgame=1&uuid='+uuid;
+    let url = C.roundsURL+'?newgame=1&uuid='+encodeURIComponent(uuid);
 
     const content = {
         headers: C.headers,
