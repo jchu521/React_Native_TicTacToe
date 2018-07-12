@@ -44,6 +44,7 @@ class GameOnline extends React.Component {
       })
       this._newGame(DeviceInfo.getUniqueID());
       this._interval = setInterval(this._heartBeatInterval, 1000);
+      console.log(I18n);
   }
 
 
@@ -182,14 +183,14 @@ class GameOnline extends React.Component {
     const winner = this._calculateWinner(squares)
     let status;
     if(winner){
-        status = winner === this.state.mark? 'You did it!' : I18n.t('You failed!');
+        status = winner === this.state.mark? I18n.t('game.success') : I18n.t('game.failed');
     }
     else if(this.state.numSteps >= 9){
-      status = 'Draw!';
+      status = I18n.t('game.draw');
     }
     else
     {
-        status = this.state.isYourTurn ? 'Your Turn!' : 'Waiting' ;
+        status = this.state.isYourTurn ? I18n.t('game.yourTurn') : I18n.t('game.waiting') ;
     }
     return(
       <ImageBackground source={require('../../../images/default.jpg')} style={GameStyle.rootContainer}>
