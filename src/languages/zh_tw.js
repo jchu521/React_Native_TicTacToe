@@ -1,16 +1,16 @@
 export default {
   game: {
-    hard: '困难',
+    hard: '困難',
     medium: '普通',
     easy: '容易',
     reset: '重置',
-    aiMode: '智能模式',
-    failed: '你失败了！',
-    success: '恭喜，你胜了！',
-    onlineMode: '在线对战',
+    aiMode: '電腦模式',
+    failed: '你失敗了！',
+    success: '獲勝！',
+    onlineMode: '在線對戰',
     waiting: '请等待...',
-    yourTurn: '该你了！',
-    draw: '平了！',
+    yourTurn: '換你了！',
+    draw: '平手！',
     newRound: '再来一局？',
   },
 
