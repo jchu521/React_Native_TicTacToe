@@ -85,6 +85,7 @@ class GameOnline extends React.Component {
       if(nextProps.game[0]['status'] && nextProps.game[0]['status'] === 'waiting'){
         this.setState({
           squares: Array(9).fill(null),
+          numSteps: 0,
           roundId: nextProps.game[0]['id'],
           mark: nextProps.game[0]['role'] === 'x_user' ? 'X' : 'O',
           roundStatus: 'waiting',
@@ -94,6 +95,7 @@ class GameOnline extends React.Component {
       {
         this.setState({
           squares: Array(9).fill(null),
+          numSteps: 0,
           roundId: nextProps.game[0]['id'],
           mark: nextProps.game[0]['x_user'] === this.state.uuid ? 'X' : 'O',
           roundStatus: 'playing',

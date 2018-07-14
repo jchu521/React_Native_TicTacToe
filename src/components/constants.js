@@ -4,8 +4,8 @@ const constants = {
     PUT_ROUND: 'PUT_ROUND',
     NEW_GAME: 'NEW_GAME',
 
-    stepsURL: 'http://tictactoe.breakself.tech/steps',
-    roundsURL: 'http://tictactoe.breakself.tech/rounds',
+    stepsURL: 'https://tictactoe.breakself.tech/steps',
+    roundsURL: 'https://tictactoe.breakself.tech/rounds',
 
     headers:{
         "Content-Type": "application/json; charset=UTF-8",
