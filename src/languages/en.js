@@ -39,6 +39,7 @@ export default {
     // leaderboard: 'Leaderboard',
     // contact: 'Contact us',
     about:'About',
+    checkVersion: 'Check Version',
   },
 
   contact:{
@@ -48,5 +49,9 @@ export default {
 
   about:{
     developers:'Developers',
+  },
+
+  version:{
+    version: 'Version',
   }
 };

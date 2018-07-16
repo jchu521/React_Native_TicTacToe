@@ -8,13 +8,34 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import { Fumi, Sae } from 'react-native-textinput-effects';
 import { Colors } from '../../styles/colors'
 import I18n from '../../languages/i18n';
+import codePush from 'react-native-code-push'
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
 
-export default class ContactScreen extends Component {
+export default class VersionScreen extends Component {
+  state={
+    currentVersion: null,
+    isReady: false,
+  }
+
+  componentDidMount(){
+    codePush.getCurrentPackage()
+    .then((update) => {
+      this.setState({currentVersion: update.appVersion})
+    });
+
+
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.currentVersion !== this.props.currentVersion && !this.state.isReady){
+      this.setState({isReady: true})
+    }
+  }
 
   render() {
+    console.log(this);
     return (
       <ImageBackground
         source={require('../../images/default.jpg')}
@@ -22,14 +43,22 @@ export default class ContactScreen extends Component {
         contentContainerStyle={styles.content}
       >
         <View style={{flex:1}} />
-        <View style={[buttons.buttonGroup, {flex: 3}]}>
-          <View style={[views.container, views.buttonGroupView]}>
-            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('about.developers')}</Text>
+        <View style={[buttons.buttonGroup]}>
+          <View style={[views.container, views.buttonGroupView, {marginBottom: 0}]}>
+            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
-          <View style={[views.container,{flex:2}]} >
-            <Text h4>Fadi Fayez</Text>
-            <Text h4>Kevin Liu</Text>
-            <Text h4>Jonathan Chueh</Text>
+          <View style={[views.container,{flex:4}]}>
+            <Text h4 >Current Version:</Text>
+
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => navigate('About')}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('info.about')}</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={{flex:1}} />

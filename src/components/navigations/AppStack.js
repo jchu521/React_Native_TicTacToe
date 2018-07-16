@@ -5,7 +5,7 @@ import AboutScreen from '../screens/AboutScreen';
 import AIModeScreen from '../screens/games/GameAiMode';
 import OnlineGameScreen from '../screens/games/GameOnline';
 import SelectGameModeScreen from '../navigations/bottomTabNavigator';
-
+import VersionScreen from '../screens/VersionScreen';
 import React from 'react';
 
 
@@ -51,9 +51,18 @@ const app = createStackNavigator({
         title: 'About',
       }
     )
+  },
+
+  Version: {
+    screen: VersionScreen,
+    navigationOptions: ({navigation}) =>(
+      {
+        title: 'Version',
+      }
+    )
   }
 },{
-   // initialRouteName: 'About'
+    initialRouteName: 'Version'
 });
 
 export default app;

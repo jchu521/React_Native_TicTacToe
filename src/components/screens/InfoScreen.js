@@ -32,6 +32,15 @@ export default class OnlineScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>{I18n.t('info.about')}</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => navigate('Version')}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('info.checkVersion')}</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ImageBackground>

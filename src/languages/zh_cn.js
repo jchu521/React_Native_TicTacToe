@@ -39,6 +39,7 @@ export default {
     // leaderboard: '排名',
     // contact: '联系',
     about:'关于',
+    checkVersion: 'Check Version',
   },
 
   contact:{
@@ -48,5 +49,9 @@ export default {
 
   about:{
     authors:'开发者',
+  },
+
+  version:{
+    version: 'Version',
   }
 };
