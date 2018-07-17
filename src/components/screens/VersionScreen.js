@@ -8,7 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import { Fumi, Sae } from 'react-native-textinput-effects';
 import { Colors } from '../../styles/colors'
 import I18n from '../../languages/i18n';
-import codePush from 'react-native-code-push'
+// import codePush from 'react-native-code-push'
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
