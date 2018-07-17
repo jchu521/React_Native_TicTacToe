@@ -19,21 +19,6 @@ export default class VersionScreen extends Component {
     isReady: false,
   }
 
-  componentDidMount(){
-    codePush.getCurrentPackage()
-    .then((update) => {
-      this.setState({currentVersion: update.appVersion})
-    });
-
-
-  }
-
-  componentDidUpdate(prevProps, prevState){
-    if(prevState.currentVersion !== this.props.currentVersion && !this.state.isReady){
-      this.setState({isReady: true})
-    }
-  }
-
   render() {
     console.log(this);
     return (
