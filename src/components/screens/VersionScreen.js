@@ -74,6 +74,7 @@ export default class VersionScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>Check Update</Text>
             </TouchableOpacity>
+            {this.state.logs.map((log, i) => <Text key={i}>{log}</Text>)}
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
@@ -83,6 +84,7 @@ export default class VersionScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>Version</Text>
             </TouchableOpacity>
+            <Text>Updated</Text>
           </View>
         </View>
         <View style={{flex:1}} />
