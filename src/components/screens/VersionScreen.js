@@ -45,6 +45,7 @@ export default class VersionScreen extends Component {
       this.setState({version: update.appVersion, label: update.label });
     });
   }
+
   render() {
     console.log(this);
     return (
