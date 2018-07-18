@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
+import { Button, TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import PropTypes from 'prop-types';
@@ -20,13 +20,17 @@ export default class VersionScreen extends Component {
   }
 
   componentDidMount(){
-    codePush.getUpdateMetadata().then((update) => {
-        if (update) {
-          this.setState({currentVersion: update.appVersion});
-        }
+    codePush.getCurrentPackage().then((update) => {
+      this.setState({version: update.appVersion, label: update.label });
     });
   }
 
+  getVersion(){
+    codePush.getCurrentPackage()
+    .then((update) => {
+      this.setState({version: update.appVersion, label: update.label });
+    });
+  }
   render() {
     console.log(this);
     return (
@@ -42,6 +46,7 @@ export default class VersionScreen extends Component {
           </View>
           <View style={[views.container,{flex:4}]}>
             <Text h4 >Current Version: {this.state.currentVersion}</Text>
+
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
@@ -51,6 +56,8 @@ export default class VersionScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>{I18n.t('info.about')}</Text>
             </TouchableOpacity>
+            <Button title="Version" onPress={() => this.getVersion()}/ >
+            <Text>Version: {this.state.version}.{this.state.label}</Text>
           </View>
         </View>
         <View style={{flex:1}} />
