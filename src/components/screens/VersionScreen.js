@@ -62,9 +62,7 @@ export default class VersionScreen extends Component {
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
           <View style={[views.container,{flex:4}]}>
-            {this.state.isReady && <Text h4 >Current Version: {this.state.version}.{this.state.label}</Text>}
-
-
+            <Text h4 >Current Version: {this.state.version}.{this.state.label}</Text>
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
@@ -84,7 +82,7 @@ export default class VersionScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>Version</Text>
             </TouchableOpacity>
-            <Text>Updated</Text>
+            <Text>Current</Text>
           </View>
         </View>
         <View style={{flex:1}} />
