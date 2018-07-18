@@ -10,59 +10,51 @@ import React from 'react';
 
 
 
-const app = createStackNavigator({
+export default createStackNavigator({
+
   Main: {
     screen: MainScreen,
     navigationOptions:{
       header: null,
-      gesturesEnabled: false,
     }
   },
 
   SelectGameMode: {
     screen: SelectGameModeScreen,
-    navigationOptions:{
+    navigationOptions: {
      header: null,
     }
   },
 
   AIMode: {
     screen: AIModeScreen,
-    navigationOptions: ({navigation}) =>(
-      {
-        title: 'AI Mode',
-      }
-    )
+    navigationOptions: {
+      title: 'AI Mode',
+    }
+
   },
 
   OnlineMode: {
     screen: OnlineGameScreen,
-    navigationOptions: ({navigation}) =>(
-      {
+    navigationOptions: {
         title: 'Online Mode',
-      }
-    )
+    }
   },
 
   About: {
     screen: AboutScreen,
-    navigationOptions: ({navigation}) =>(
-      {
+    navigationOptions: {
         title: 'About',
-      }
-    )
+    }
   },
 
   Version: {
     screen: VersionScreen,
-    navigationOptions: ({navigation}) =>(
-      {
+    navigationOptions: {
         title: 'Version',
-      }
-    )
-  }
-},{
-    // initialRouteName: 'Version'
-});
+    }
+  },
 
-export default app;
+},{
+    // initialRouteName: 'Main'
+});

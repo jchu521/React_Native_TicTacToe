@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
+import { BackHandler, TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import PropTypes from 'prop-types';
@@ -12,8 +12,7 @@ import I18n from '../../languages/i18n';
 import buttons from '../../styles/button';
 import views from '../../styles/views';
 
-export default class ContactScreen extends Component {
-
+export default class AboutScreen extends Component {
   render() {
     return (
       <ImageBackground

@@ -7,11 +7,11 @@ import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-export default createBottomTabNavigator(
-  {
+export default createBottomTabNavigator({
     SelectAILevels: {
       screen: SelectAILevelsScreen,
       navigationOptions: {
+        swipeEnabled: true,
         title: 'AI',
         tabBarIcon: ({ focused, tintColor }) => {
             return <MaterialIcons  name={'computer'} color={tintColor} size={25}/>
@@ -23,6 +23,7 @@ export default createBottomTabNavigator(
     OnlineScreen: {
       screen: OnlineScreen,
       navigationOptions: {
+        swipeEnabled: true,
         title: 'Online',
         tabBarIcon: ({ focused, tintColor }) => {
             let iconName = `ios-globe${focused ? '' : '-outline'}`;
@@ -34,6 +35,7 @@ export default createBottomTabNavigator(
     InfoScreen: {
       screen: InfoScreen,
       navigationOptions: {
+        swipeEnabled: true,
         title: 'Info',
         tabBarIcon: ({ focused, tintColor }) => {
             let iconName = `ios-information-circle${focused ? '' : '-outline'}`;
@@ -43,6 +45,7 @@ export default createBottomTabNavigator(
     }
   },
   {
+    backBehavior: 'none',
     tabBarOptions: {
         activeTintColor: 'tomato',
         inactiveTintColor: 'white',
