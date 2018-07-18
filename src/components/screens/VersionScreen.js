@@ -9,22 +9,21 @@ import { Fumi, Sae } from 'react-native-textinput-effects';
 import { Colors } from '../../styles/colors';
 import I18n from '../../languages/i18n';
 import codePush from 'react-native-code-push';
+import { bindActionCreators } from "redux";
+import * as actions from '../actions/index';
+import { connect } from 'react-redux';
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
 
-export default class VersionScreen extends Component {
+class VersionScreen extends Component {
   state={
-    version: null,
-    isReady: false,
     logs:[],
-    isReady: false
   }
 
   componentDidMount(){
-    codePush.getCurrentPackage().then((update) => {
-      this.setState({version: update.appVersion, label: update.label, isReady: true });
-    });
+    codePush.notifyAppReady();
+    this.props.getUpdateMetadata();
   }
 
   codepushSync(){
@@ -41,20 +40,25 @@ export default class VersionScreen extends Component {
       }
     });
   }
-  getVersion(){
-    codePush.getCurrentPackage()
-    .then((update) => {
-      this.setState({version: update.appVersion, label: update.label });
+
+  checkUpdate = () => {
+    codePush.checkForUpdate().then((update) => {
+        if (!update) {
+          alert("The app is up to date!");
+        } else {
+          alert("An update is available!");
+        }
     });
   }
 
   render() {
     console.log(this);
+    const { appInfo } = this.props.appInfo;
+
     return (
       <ImageBackground
         source={require('../../images/default.jpg')}
         style={views.container}
-        contentContainerStyle={styles.content}
       >
         <View style={{flex:1}} />
         <View style={[buttons.buttonGroup,{flex:5}]}>
@@ -62,27 +66,27 @@ export default class VersionScreen extends Component {
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
           <View style={[views.container,{flex:4}]}>
-            <Text h4 >Current Version: {this.state.version}.{this.state.label}</Text>
+            <Text h4 >Current Version: {appInfo.appVersion}.{appInfo.label}</Text>
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
               ]}
-              onPress={() => this.codepushSync()}
+              onPress={() => this.checkUpdate()}
             >
               <Text h3 style={{color:'white'}}>Check Update</Text>
             </TouchableOpacity>
-            {this.state.logs.map((log, i) => <Text key={i}>{log}</Text>)}
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
               ]}
-              onPress={() => this.getVersion()}
+              onPress={() => appInfo.install(codePush.InstallMode = codePush.InstallMode.IMMEDIATE)}
             >
-              <Text h3 style={{color:'white'}}>Version</Text>
+              <Text h3 style={{color:'white'}}>Update</Text>
             </TouchableOpacity>
-            <Text>Current</Text>
+            {this.state.logs.map((log, i) => <Text key={i}>{log}</Text>)}
+
           </View>
         </View>
         <View style={{flex:1}} />
@@ -90,50 +94,12 @@ export default class VersionScreen extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  ...state
+})
 
-const styles = StyleSheet.create({
+const mapDispatchProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch)
+}
 
-  searchSection: {
-    flexDirection: 'row',
-    width:'80%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: '#404d5b',
-},
-searchIcon: {
-    padding: 10,
-},
-input: {
-    flex: 1,
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
-    paddingLeft: 0,
-    backgroundColor: '#fff',
-    // color: 'white',
-},
-  container: {
-    flex: 1,
-    paddingTop: 24,
-    backgroundColor: 'white',
-  },
-  content: {
-    // not cool but good enough to make all inputs visible when keyboard is active
-    paddingBottom: 300,
-  },
-  card1: {
-    paddingVertical: 16,
-  },
-  card2: {
-    padding: 16,
-  },
-
-  title: {
-    paddingBottom: 16,
-    textAlign: 'center',
-    color: '#404d5b',
-    fontSize: 20,
-    fontWeight: 'bold',
-    opacity: 0.8,
-  },
-});
+export default connect(mapStateToProps, mapDispatchProps)(VersionScreen);

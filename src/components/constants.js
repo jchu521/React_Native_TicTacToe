@@ -4,6 +4,8 @@ const constants = {
     PUT_ROUND: 'PUT_ROUND',
     NEW_GAME: 'NEW_GAME',
 
+    GET_UPDATE_METADATA: 'GET_UPDATE_METADATA',
+    
     stepsURL: 'https://tictactoe.breakself.tech/steps',
     roundsURL: 'https://tictactoe.breakself.tech/rounds',
 

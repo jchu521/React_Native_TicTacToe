@@ -51,10 +51,11 @@ export default createStackNavigator({
   Version: {
     screen: VersionScreen,
     navigationOptions: {
+        header: null,
         title: 'Version',
     }
   },
 
 },{
-    // initialRouteName: 'Main'
+    // initialRouteName: 'Version'
 });
