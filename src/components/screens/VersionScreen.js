@@ -8,7 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import { Fumi, Sae } from 'react-native-textinput-effects';
 import { Colors } from '../../styles/colors'
 import I18n from '../../languages/i18n';
-// import codePush from 'react-native-code-push'
+import codePush from 'react-native-code-push'
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
@@ -17,6 +17,14 @@ export default class VersionScreen extends Component {
   state={
     currentVersion: null,
     isReady: false,
+  }
+
+  componentDidMount(){
+    codePush.getUpdateMetadata().then((update) => {
+        if (update) {
+          this.setState({currentVersion: update.appVersion});
+        }
+    });
   }
 
   render() {
@@ -33,8 +41,7 @@ export default class VersionScreen extends Component {
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
           <View style={[views.container,{flex:4}]}>
-            <Text h4 >Current Version:</Text>
-
+            <Text h4 >Current Version: {this.state.currentVersion}</Text>
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,

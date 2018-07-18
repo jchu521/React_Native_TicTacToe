@@ -7,13 +7,9 @@ import { Text } from 'react-native-elements';
 import views from '../../styles/views';
 import buttons from '../../styles/button';
 import { Colors } from '../../styles/colors'
-//Kevin, For OTA, Codepush
-// import codePush from 'react-native-code-push'
 
 export default class MainScreen extends Component {
 
-  componentDidMount(){
-  }
 
   render() {
     const { navigate } = this.props.navigation
