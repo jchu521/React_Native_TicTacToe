@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { Fumi, Sae } from 'react-native-textinput-effects';
-import { Colors } from '../../styles/colors'
+import { Colors } from '../../styles/colors';
 import I18n from '../../languages/i18n';
-import codePush from 'react-native-code-push'
+import codePush from 'react-native-code-push';
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
@@ -17,14 +17,16 @@ export default class VersionScreen extends Component {
   state={
     version: null,
     isReady: false,
-    logs:[]
+    logs:[],
+    isReady: false
   }
 
   componentDidMount(){
     codePush.getCurrentPackage().then((update) => {
-      this.setState({version: update.appVersion, label: update.label });
+      this.setState({version: update.appVersion, label: update.label, isReady: true });
     });
   }
+
   codepushSync(){
     this.setState({logs: ["Started at " + new Date().getTime()]});
     codePush.sync({
@@ -60,7 +62,8 @@ export default class VersionScreen extends Component {
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
           <View style={[views.container,{flex:4}]}>
-            <Text h4 >Current Version: {this.state.version}.{this.state.label}</Text>
+            {this.state.isReady && <Text h4 >Current Version: {this.state.version}.{this.state.label}</Text>}
+
 
             <TouchableOpacity
               style={[

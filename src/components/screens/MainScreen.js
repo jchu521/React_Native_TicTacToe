@@ -3,13 +3,17 @@ import React, { Component } from 'react';
 import I18n from '../../languages/i18n';
 import { Image, TouchableOpacity, View, ImageBackground, Button } from 'react-native';
 import { Text } from 'react-native-elements';
+import codePush from 'react-native-code-push'
 
 import views from '../../styles/views';
 import buttons from '../../styles/button';
 import { Colors } from '../../styles/colors'
 
-export default class MainScreen extends Component {
+class MainScreen extends Component {
 
+  // componentDidMount(){
+  //   codePush.sync();
+  // }
 
   render() {
     const { navigate } = this.props.navigation
@@ -31,3 +35,5 @@ export default class MainScreen extends Component {
     );
   }
 }
+
+export default MainScreen;
