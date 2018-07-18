@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
+import { Button, TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import PropTypes from 'prop-types';
@@ -15,18 +15,36 @@ import views from '../../styles/views';
 
 export default class VersionScreen extends Component {
   state={
-    currentVersion: null,
+    version: null,
     isReady: false,
+    logs:[]
   }
 
   componentDidMount(){
-    codePush.getUpdateMetadata().then((update) => {
-        if (update) {
-          this.setState({currentVersion: update.appVersion});
-        }
+    codePush.getCurrentPackage().then((update) => {
+      this.setState({version: update.appVersion, label: update.label });
     });
   }
-
+  codepushSync(){
+    this.setState({logs: ["Started at " + new Date().getTime()]});
+    codePush.sync({
+        updateDialog: true,
+        installMode: codePush.InstallMode.IMMEDIATE
+    }, (status) => {
+      for( var key in codePush.SyncStatus){
+        if(status === codePush.SyncStatus[key]){
+          this.setState(prevState => ({logs: [...prevState.logs, key.replace(/_/g,' ')]}));
+          break;
+        }
+      }
+    });
+  }
+  getVersion(){
+    codePush.getCurrentPackage()
+    .then((update) => {
+      this.setState({version: update.appVersion, label: update.label });
+    });
+  }
   render() {
     console.log(this);
     return (
@@ -36,20 +54,30 @@ export default class VersionScreen extends Component {
         contentContainerStyle={styles.content}
       >
         <View style={{flex:1}} />
-        <View style={[buttons.buttonGroup]}>
+        <View style={[buttons.buttonGroup,{flex:5}]}>
           <View style={[views.container, views.buttonGroupView, {marginBottom: 0}]}>
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
           <View style={[views.container,{flex:4}]}>
-            <Text h4 >Current Version: {this.state.currentVersion}</Text>
+            <Text h4 >Current Version: {this.state.version}.{this.state.label}</Text>
+
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
               ]}
-              onPress={() => navigate('About')}
+              onPress={() => this.codepushSync()}
             >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.about')}</Text>
+              <Text h3 style={{color:'white'}}>Check Update</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => this.getVersion()}
+            >
+              <Text h3 style={{color:'white'}}>Version</Text>
             </TouchableOpacity>
           </View>
         </View>

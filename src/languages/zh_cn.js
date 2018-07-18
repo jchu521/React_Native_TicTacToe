@@ -39,7 +39,7 @@ export default {
     // leaderboard: '排名',
     // contact: '联系',
     about:'关于',
-    checkVersion: 'Check Version',
+    updateSettings: 'Update Settings',
   },
 
   contact:{

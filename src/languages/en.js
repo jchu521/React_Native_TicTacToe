@@ -39,7 +39,7 @@ export default {
     // leaderboard: 'Leaderboard',
     // contact: 'Contact us',
     about:'About',
-    checkVersion: 'Check Version',
+    updateSettings: 'Update Settings',
   },
 
   contact:{

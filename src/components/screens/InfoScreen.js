@@ -39,7 +39,7 @@ export default class OnlineScreen extends Component {
               ]}
               onPress={() => navigate('Version')}
             >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.checkVersion')}</Text>
+              <Text h3 style={{color:'white'}}>{I18n.t('info.updateSettings')}</Text>
             </TouchableOpacity>
           </View>
         </View>

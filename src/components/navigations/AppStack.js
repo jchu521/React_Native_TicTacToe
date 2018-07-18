@@ -62,7 +62,7 @@ const app = createStackNavigator({
     )
   }
 },{
-    // initialRouteName: 'Version'
+    initialRouteName: 'Version'
 });
 
 export default app;

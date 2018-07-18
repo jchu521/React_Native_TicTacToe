@@ -39,7 +39,7 @@ export default {
     // leaderboard: '排名',
     // contact: '聯絡',
     about:'關於',
-    checkVersion: '檢查版本',
+    updateSettings: '跟新設置',
   },
 
   contact:{
