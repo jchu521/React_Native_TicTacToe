@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
+import { ProgressBarAndroid,Alert, AsyncStorage, Switch, TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ import codePush from 'react-native-code-push';
 import { bindActionCreators } from "redux";
 import * as actions from '../actions/index';
 import { connect } from 'react-redux';
+import SwitchSelector from 'react-native-switch-selector';
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
@@ -19,11 +20,41 @@ import views from '../../styles/views';
 class VersionScreen extends Component {
   state={
     logs:[],
+    value: null,
+    version: null,
+    label: null,
+  }
+  componentDidMount(){
+    this._retrieveData();
+    this._setAppVersion();
   }
 
-  componentDidMount(){
-    codePush.notifyAppReady();
-    this.props.getUpdateMetadata();
+  _setAppVersion = () => {
+    this.setState({
+      version: this.props.appInfo.appInfo.appVersion,
+      label: this.props.appInfo.appInfo.label
+    })
+  }
+
+  _retrieveData = async () => {
+      const value = await AsyncStorage.getItem('AutoUpdate');
+
+      if (value !== null) {
+        this.setState({value: false});
+      }else{
+        this.setState({value: true});
+      }
+  }
+
+  _setAutoSave = async()=>{
+    const {value} = this.state;
+
+    if(value){
+      await AsyncStorage.setItem('AutoUpdate', 'false');
+    }else{
+      await AsyncStorage.removeItem('AutoUpdate');
+    }
+    this.setState({value: !this.state.value});
   }
 
   codepushSync(){
@@ -41,19 +72,40 @@ class VersionScreen extends Component {
     });
   }
 
+  _updateNow(){
+    codePush.sync({ updateDialog: true, installMode: codePush.InstallMode.IMMEDIATE });
+  }
+
   checkUpdate = () => {
     codePush.checkForUpdate().then((update) => {
         if (!update) {
-          alert("The app is up to date!");
+          Alert.alert(
+            'Message',
+            'The app is up to date!',
+            [
+              {text: 'OK'},
+            ],
+            { cancelable: false }
+          )
         } else {
-          alert("An update is available!");
+          Alert.alert(
+            'Message',
+            'An update is available!',
+            [
+              {text: 'Update Now', onPress: () => this._updateNow()},
+              {text: 'Update Later'},
+            ],
+            { cancelable: false }
+          )
         }
     });
   }
 
+
   render() {
     console.log(this);
     const { appInfo } = this.props.appInfo;
+    const { version, label } = this.state;
 
     return (
       <ImageBackground
@@ -65,8 +117,12 @@ class VersionScreen extends Component {
           <View style={[views.container, views.buttonGroupView, {marginBottom: 0}]}>
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
-          <View style={[views.container,{flex:4}]}>
-            <Text h4 >Current Version: {appInfo.appVersion}.{appInfo.label}</Text>
+          <View style={[views.container,{flex:4, width:'100%'}]}>
+            { version!==null && <Text h4>Current Version: {version}.{label}</Text>}
+            <View style={{flexDirection:'row'}}>
+              <Text h4 >Auto Update: </Text>
+              <Switch value={this.state.value}  thumbTintColor={'white'} onValueChange={() => this._setAutoSave()}/>
+            </View>
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
@@ -76,17 +132,7 @@ class VersionScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>Check Update</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                buttons.DefaultBtn,
-                {backgroundColor: Colors.lightPurple}
-              ]}
-              onPress={() => appInfo.install(codePush.InstallMode = codePush.InstallMode.IMMEDIATE)}
-            >
-              <Text h3 style={{color:'white'}}>Update</Text>
-            </TouchableOpacity>
             {this.state.logs.map((log, i) => <Text key={i}>{log}</Text>)}
-
           </View>
         </View>
         <View style={{flex:1}} />
@@ -101,5 +147,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchProps = (dispatch) => {
   return bindActionCreators(actions, dispatch)
 }
-
 export default connect(mapStateToProps, mapDispatchProps)(VersionScreen);

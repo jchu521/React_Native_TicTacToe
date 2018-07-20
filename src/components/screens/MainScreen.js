@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import I18n from '../../languages/i18n';
-import { Image, TouchableOpacity, View, ImageBackground, Button } from 'react-native';
+import { Image, TouchableOpacity, View, ImageBackground, AsyncStorage } from 'react-native';
 import { Text } from 'react-native-elements';
 import codePush from 'react-native-code-push'
 import { bindActionCreators } from "redux";
@@ -14,7 +14,30 @@ import { Colors } from '../../styles/colors'
 
 class MainScreen extends Component {
 
+  state ={
+    isReady: true,
+  }
 
+  componentWillMount(){
+    codePush.notifyAppReady();
+    this.props.getUpdateMetadata();
+    this._retrieveData();
+  }
+
+  _retrieveData = async () => {
+      const value = await AsyncStorage.getItem('AutoUpdate');
+
+      if (value === null) {
+        //auto update
+        codePush.sync();
+
+      }else{
+
+      }
+      this.setState({isReady: false})
+
+      console.log(value);
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -26,6 +49,7 @@ class MainScreen extends Component {
         <View style={{flex:1}}/>
         <View style={views.container}>
           <TouchableOpacity
+            disabled={this.state.isReady}
             style={[
               buttons.DefaultBtn,
               {backgroundColor: Colors.yellow}
@@ -34,7 +58,6 @@ class MainScreen extends Component {
           >
             <Text h1 style={{color:'white'}}>{I18n.t('mainScreen.start')}</Text>
           </TouchableOpacity>
-          <Text h5 >Version: {appInfo.appVersion}.{appInfo.label}</Text>
         </View>
       </ImageBackground>
     );
