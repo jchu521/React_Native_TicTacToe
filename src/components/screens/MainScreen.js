@@ -14,34 +14,8 @@ import { Colors } from '../../styles/colors'
 
 class MainScreen extends Component {
 
-  state ={
-    isReady: true,
-  }
-
-  componentWillMount(){
-    codePush.notifyAppReady();
-    this.props.getUpdateMetadata();
-    this._retrieveData();
-  }
-
-  _retrieveData = async () => {
-      const value = await AsyncStorage.getItem('AutoUpdate');
-
-      if (value === null) {
-        //auto update
-        codePush.sync();
-
-      }else{
-
-      }
-      this.setState({isReady: false})
-
-      console.log(value);
-  }
-
   render() {
     const { navigate } = this.props.navigation;
-    const { appInfo } = this.props.appInfo;
 
     console.log(this);
     return (
@@ -49,7 +23,6 @@ class MainScreen extends Component {
         <View style={{flex:1}}/>
         <View style={views.container}>
           <TouchableOpacity
-            disabled={this.state.isReady}
             style={[
               buttons.DefaultBtn,
               {backgroundColor: Colors.yellow}

@@ -29,7 +29,7 @@ export default createStackNavigator({
   AIMode: {
     screen: AIModeScreen,
     navigationOptions: {
-      title: 'AI Mode',
+     header: null,
     }
 
   },
@@ -37,22 +37,21 @@ export default createStackNavigator({
   OnlineMode: {
     screen: OnlineGameScreen,
     navigationOptions: {
-        title: 'Online Mode',
+     header: null,
     }
   },
 
   About: {
     screen: AboutScreen,
     navigationOptions: {
-        title: 'About',
+     header: null,
     }
   },
 
   Version: {
     screen: VersionScreen,
     navigationOptions: {
-        header: null,
-        title: 'Version',
+     header: null,
     }
   },
 

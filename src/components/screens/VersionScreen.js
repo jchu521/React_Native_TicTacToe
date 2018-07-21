@@ -13,16 +13,20 @@ import { bindActionCreators } from "redux";
 import * as actions from '../actions/index';
 import { connect } from 'react-redux';
 import SwitchSelector from 'react-native-switch-selector';
+import * as Progress from 'react-native-progress';
+import Modal from 'react-native-modalbox';
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
 
 class VersionScreen extends Component {
   state={
-    logs:[],
     value: null,
     version: null,
     label: null,
+    receivedBytes: null,
+    totalBytes: null,
+    isDisabled: false,
   }
   componentDidMount(){
     this._retrieveData();
@@ -30,10 +34,12 @@ class VersionScreen extends Component {
   }
 
   _setAppVersion = () => {
-    this.setState({
-      version: this.props.appInfo.appInfo.appVersion,
-      label: this.props.appInfo.appInfo.label
-    })
+    if(this.props.appInfo.appInfo!==null){
+      this.setState({
+        version: this.props.appInfo.appInfo.appVersion,
+        label: this.props.appInfo.appInfo.label
+      })
+    }
   }
 
   _retrieveData = async () => {
@@ -43,37 +49,43 @@ class VersionScreen extends Component {
         this.setState({value: false});
       }else{
         this.setState({value: true});
+
       }
+      console.log(value);
   }
 
   _setAutoSave = async()=>{
     const {value} = this.state;
 
     if(value){
+      this.setState({value: false});
       await AsyncStorage.setItem('AutoUpdate', 'false');
     }else{
+      this.setState({value: true});
       await AsyncStorage.removeItem('AutoUpdate');
     }
-    this.setState({value: !this.state.value});
-  }
-
-  codepushSync(){
-    this.setState({logs: ["Started at " + new Date().getTime()]});
-    codePush.sync({
-        updateDialog: true,
-        installMode: codePush.InstallMode.IMMEDIATE
-    }, (status) => {
-      for( var key in codePush.SyncStatus){
-        if(status === codePush.SyncStatus[key]){
-          this.setState(prevState => ({logs: [...prevState.logs, key.replace(/_/g,' ')]}));
-          break;
-        }
-      }
-    });
   }
 
   _updateNow(){
-    codePush.sync({ updateDialog: true, installMode: codePush.InstallMode.IMMEDIATE });
+    codePush.sync({ updateDialog: true },
+      (status) => {
+          switch (status) {
+            case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+                // Show "downloading" modal
+                this.refs.result.open();
+                break;
+            case codePush.SyncStatus.INSTALLING_UPDATE:
+                this.refs.result.close();
+                codePush.restartApp();
+                break;
+          }
+      },
+      ({ receivedBytes, totalBytes, }) => {
+        /* Update download modal progress */
+        this.setState({receivedBytes,totalBytes});
+
+      }
+    );
   }
 
   checkUpdate = () => {
@@ -105,7 +117,7 @@ class VersionScreen extends Component {
   render() {
     console.log(this);
     const { appInfo } = this.props.appInfo;
-    const { version, label } = this.state;
+    const { version, label, receivedBytes, totalBytes } = this.state;
 
     return (
       <ImageBackground
@@ -132,10 +144,31 @@ class VersionScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>Check Update</Text>
             </TouchableOpacity>
-            {this.state.logs.map((log, i) => <Text key={i}>{log}</Text>)}
           </View>
         </View>
         <View style={{flex:1}} />
+        <Modal
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: 200,
+            width: '100%',
+            zIndex: 2,
+            backgroundColor: Colors.lightPurple
+          }}
+          position={"center"}
+          ref={"result"}
+          backdropPressToClose={false}
+          swipeToClose={false}
+          >
+          {receivedBytes!==null && totalBytes !== null &&
+            <View>
+              <Text>Installing...</Text>
+              <Text>Do not turn off power</Text>
+              <Progress.Bar progress={receivedBytes/totalBytes} width={200} />
+            </View>
+          }
+        </Modal>
       </ImageBackground>
     );
   }
