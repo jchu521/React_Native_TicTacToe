@@ -76,11 +76,11 @@ var GameStyle = StyleSheet.create({
     messageModal:{
       justifyContent: 'center',
       alignItems: 'center',
-      height: 200,
+      height: 220,
       width: '100%',
       opacity:0.8
     },
-    
+
     inputButtonText: {
         fontSize: 54,
         fontWeight: 'bold',

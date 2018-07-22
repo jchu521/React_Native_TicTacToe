@@ -13,6 +13,16 @@ const button = StyleSheet.create({
       marginTop: 10
     },
 
+    ModelBtn:{
+      width: '80%',
+      height: 60,
+      borderRadius: 20,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom:10,
+      marginTop: 10
+    },
+
     buttonGroup: {
       flex: 3,
       justifyContent:'center',

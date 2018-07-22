@@ -4,6 +4,7 @@ import MainScreen from '../screens/MainScreen';
 import AboutScreen from '../screens/AboutScreen';
 import AIModeScreen from '../screens/games/GameAiMode';
 import OnlineGameScreen from '../screens/games/GameOnline';
+import OnlineWithFriendScreen from '../screens/games/GameWithFriend';
 import SelectGameModeScreen from '../navigations/bottomTabNavigator';
 
 import React from 'react';
@@ -40,6 +41,15 @@ const app = createStackNavigator({
     navigationOptions: ({navigation}) =>(
       {
         title: 'Online Mode',
+      }
+    )
+  },
+
+  OnlineWithFriendMode: {
+    screen: OnlineWithFriendScreen,
+    navigationOptions: ({navigation}) =>(
+      {
+        title: 'Online With Friend Mode',
       }
     )
   },
