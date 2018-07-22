@@ -73,8 +73,8 @@ class GameOnline extends React.Component {
     };
 
   componentWillReceiveProps(nextProps) {
-    //console.log(nextProps);
-    //console.log(this.state);
+    console.log(nextProps);
+    console.log(this.state);
     this._newGameHandler(nextProps);
     this._stepsHandler(nextProps);
     this._miscHandler(nextProps);
