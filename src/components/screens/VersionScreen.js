@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { ProgressBarAndroid,Alert, AsyncStorage, Switch, TouchableOpacity, ImageBackground, ScrollView, StyleSheet, View, TextInput } from 'react-native';
 import { Text } from 'react-native-elements';
 
-import PropTypes from 'prop-types';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import Entypo from 'react-native-vector-icons/Entypo';
-import { Fumi, Sae } from 'react-native-textinput-effects';
 import { Colors } from '../../styles/colors';
 import I18n from '../../languages/i18n';
 import codePush from 'react-native-code-push';
@@ -29,18 +25,19 @@ class VersionScreen extends Component {
     isDisabled: false,
   }
   componentDidMount(){
-    this._retrieveData();
-    this._setAppVersion();
+    // this._retrieveData()
+    // this._setAppVersion()
   }
 
-  _setAppVersion = () => {
-    if(this.props.appInfo.appInfo!==null){
-      this.setState({
-        version: this.props.appInfo.appInfo.appVersion,
-        label: this.props.appInfo.appInfo.label
-      })
-    }
-  }
+
+  // _setAppVersion = () => {
+  //   if(this.props.appInfo.appInfo!==null){
+  //     this.setState({
+  //       version: this.props.appInfo.appInfo.appVersion,
+  //       label: this.props.appInfo.appInfo.label
+  //     })
+  //   }
+  // }
 
   _retrieveData = async () => {
       const value = await AsyncStorage.getItem('AutoUpdate');
@@ -51,7 +48,6 @@ class VersionScreen extends Component {
         this.setState({value: true});
 
       }
-      console.log(value);
   }
 
   _setAutoSave = async()=>{
@@ -115,8 +111,6 @@ class VersionScreen extends Component {
 
 
   render() {
-    console.log(this);
-    const { appInfo } = this.props.appInfo;
     const { version, label, receivedBytes, totalBytes } = this.state;
 
     return (
@@ -130,7 +124,6 @@ class VersionScreen extends Component {
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('version.version')}</Text>
           </View>
           <View style={[views.container,{flex:4, width:'100%'}]}>
-            { version!==null && <Text h4>Current Version: {version}.{label}</Text>}
             <View style={{flexDirection:'row'}}>
               <Text h4 >Auto Update: </Text>
               <Switch value={this.state.value}  thumbTintColor={'white'} onValueChange={() => this._setAutoSave()}/>

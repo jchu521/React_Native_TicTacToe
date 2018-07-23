@@ -21,27 +21,27 @@ class App extends Component<Props> {
 
       if (value === null) {
         //auto update
-        codePush.sync();
+        // codePush.sync();
         //used for testing App to see the steps
-        // codePush.sync({ updateDialog: true },
-        //   (status) => {
-        //     switch (status) {
-        //         case codePush.SyncStatus.UP_TO_DATE :
-        //           console.log('No new update');
-        //             break;
-        //         case codePush.SyncStatus.DOWNLOADING_PACKAGE:
-        //             // Show "downloading" modal
-        //             console.log('downloading');
-        //             // this.refs.update.open();
-        //             break;
-        //         case codePush.SyncStatus.INSTALLING_UPDATE:
-        //             console.log('Installing');
-        //             codePush.restartApp();
-        //             // this.refs.update.close();
-        //             break;
-        //       }
-        //   }
-        // );
+        codePush.sync({ updateDialog: true },
+          (status) => {
+            switch (status) {
+                case codePush.SyncStatus.UP_TO_DATE :
+                  console.log('No new update');
+                    break;
+                case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+                    // Show "downloading" modal
+                    console.log('downloading');
+                    // this.refs.update.open();
+                    break;
+                case codePush.SyncStatus.INSTALLING_UPDATE:
+                    console.log('Installing');
+                    codePush.restartApp();
+                    // this.refs.update.close();
+                    break;
+              }
+          }
+        );
       }
       console.log(value);
   }
