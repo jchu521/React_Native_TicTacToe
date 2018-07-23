@@ -4,6 +4,7 @@ import MainScreen from '../screens/MainScreen';
 import AboutScreen from '../screens/AboutScreen';
 import AIModeScreen from '../screens/games/GameAiMode';
 import OnlineGameScreen from '../screens/games/GameOnline';
+import OnlineWithFriendScreen from '../screens/games/GameWithFriend';
 import SelectGameModeScreen from '../navigations/bottomTabNavigator';
 import VersionScreen from '../screens/VersionScreen';
 import React from 'react';
@@ -39,6 +40,15 @@ export default createStackNavigator({
     navigationOptions: {
      header: null,
     }
+  },
+
+  OnlineWithFriendMode: {
+    screen: OnlineWithFriendScreen,
+    navigationOptions: ({navigation}) =>(
+      {
+        title: 'Online With Friend Mode',
+      }
+    )
   },
 
   About: {

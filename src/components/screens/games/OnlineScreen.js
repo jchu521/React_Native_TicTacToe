@@ -33,6 +33,15 @@ export default class OnlineScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>{I18n.t('online.online')}</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightBlue}
+              ]}
+              onPress={() => navigate('OnlineWithFriendMode')}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('online.friends')}</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ImageBackground>
