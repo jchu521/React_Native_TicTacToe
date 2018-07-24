@@ -6,6 +6,8 @@ const misc = (state=[], action) => {
     switch (action.type){
         case C.PUT_ROUND:
             return res;
+        case C.PUT_RESULT:
+            return res;
         default:
             return false;
     }
