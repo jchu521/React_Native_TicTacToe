@@ -2,11 +2,11 @@ import { createStackNavigator } from 'react-navigation';
 
 import MainScreen from '../screens/MainScreen';
 import AboutScreen from '../screens/AboutScreen';
+import DisclaimerScreen from '../screens/Disclaimer';
 import AIModeScreen from '../screens/games/GameAiMode';
 import OnlineGameScreen from '../screens/games/GameOnline';
 import OnlineWithFriendScreen from '../screens/games/GameWithFriend';
-import SelectGameModeScreen from '../navigations/bottomTabNavigator';
-import VersionScreen from '../screens/VersionScreen';
+import {bottomTab1, bottomTab2} from '../navigations/bottomTabNavigator';
 import React from 'react';
 
 
@@ -15,13 +15,22 @@ export default createStackNavigator({
 
   Main: {
     screen: MainScreen,
-    navigationOptions:{
-      header: null,
-    }
+    navigationOptions: ({navigation}) =>(
+      {
+        header: null,
+      }
+    )
   },
 
   SelectGameMode: {
-    screen: SelectGameModeScreen,
+    screen: bottomTab1,
+    navigationOptions: {
+     header: null,
+    }
+  },
+
+  OnlineMode: {
+    screen: bottomTab2,
     navigationOptions: {
      header: null,
     }
@@ -33,13 +42,6 @@ export default createStackNavigator({
      header: null,
     }
 
-  },
-
-  OnlineMode: {
-    screen: OnlineGameScreen,
-    navigationOptions: {
-     header: null,
-    }
   },
 
   OnlineWithFriendMode: {
@@ -58,13 +60,13 @@ export default createStackNavigator({
     }
   },
 
-  Version: {
-    screen: VersionScreen,
+  Disclaimer:{
+    screen: DisclaimerScreen,
     navigationOptions: {
      header: null,
     }
   },
 
 },{
-    // initialRouteName: 'Version'
+    // initialRouteName: 'About'
 });

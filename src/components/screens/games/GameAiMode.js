@@ -31,8 +31,8 @@ export default class GameAiMode extends React.Component {
     }
 
     componentDidMount(){
-      const { level } = this.props.navigation.state.params;
-
+      // const { level } = this.props.navigation.state.params;
+      const level = 5;
       switch (level) {
         case 'EASY':
           this.setState({modeTitle: I18n.t('game.easy'), gameLevel: 5});

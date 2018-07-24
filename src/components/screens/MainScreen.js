@@ -29,7 +29,16 @@ class MainScreen extends Component {
             ]}
             onPress={() => navigate('SelectGameMode')}
           >
-            <Text h1 style={{color:'white'}}>{I18n.t('mainScreen.start')}</Text>
+            <Text h2 style={{color:'white'}}>{I18n.t('mainScreen.computer')}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              buttons.DefaultBtn,
+              {backgroundColor: Colors.yellow}
+            ]}
+            onPress={() => navigate('OnlineMode')}
+          >
+            <Text h2 style={{color:'white'}}>{I18n.t('mainScreen.online')}</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>

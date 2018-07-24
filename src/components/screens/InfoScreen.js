@@ -32,7 +32,7 @@ export default class OnlineScreen extends Component {
             >
               <Text h3 style={{color:'white'}}>{I18n.t('info.about')}</Text>
             </TouchableOpacity>
-            <TouchableOpacity
+            {/*}<TouchableOpacity
               style={[
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
@@ -40,6 +40,15 @@ export default class OnlineScreen extends Component {
               onPress={() => navigate('Version')}
             >
               <Text h3 style={{color:'white'}}>{I18n.t('info.updateSettings')}</Text>
+            </TouchableOpacity>*/}
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => navigate('Disclaimer')}
+            >
+              <Text h3 style={{color:'white'}}>{I18n.t('info.disclaimer')}</Text>
             </TouchableOpacity>
           </View>
         </View>

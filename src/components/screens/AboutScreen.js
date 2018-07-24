@@ -12,7 +12,7 @@ import I18n from '../../languages/i18n';
 import buttons from '../../styles/button';
 import views from '../../styles/views';
 
-export default class AboutScreen extends Component {
+export default class DevelopersScreen extends Component {
   render() {
     return (
       <ImageBackground
@@ -21,17 +21,18 @@ export default class AboutScreen extends Component {
         contentContainerStyle={styles.content}
       >
         <View style={{flex:1}} />
-        <View style={[buttons.buttonGroup, {flex: 3}]}>
+        <View style={[buttons.buttonGroup, {flex: 5}]}>
           <View style={[views.container, views.buttonGroupView]}>
-            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('about.developers')}</Text>
+            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('about.about')}</Text>
           </View>
-          <View style={[views.container,{flex:2}]} >
-            <Text h4>Fadi Fayez</Text>
-            <Text h4>Kevin Liu</Text>
-            <Text h4>Jonathan Chueh</Text>
+          <View style={[views.container,{flex:5}]} >
+            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}} >{I18n.t('about.description')}</Text>
+            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName1')}</Text>
+            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName2')}</Text>
+            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName3')}</Text>
+            <Text style={{ textAlign: 'center', width:'90%', fontSize: 20}}>{I18n.t('about.moreInfo')}</Text>
           </View>
         </View>
-        <View style={{flex:1}} />
       </ImageBackground>
     );
   }

@@ -40,6 +40,7 @@ export default {
     // contact: '聯絡',
     about:'關於',
     updateSettings: '跟新設置',
+    disclaimer: '免責聲明',
   },
 
   contact:{
@@ -48,11 +49,21 @@ export default {
   },
 
   about:{
-    authors:'開發者',
+    about:'關於',
+    description: '此項目是進行在 Manukau Information Technology-數位科技部門用於研究遊戲人工智慧技術 '+
+      '項目設計和開法者是',
+    developerName1: 'Jonathan Chueh',
+    developerName2: 'Kevin Liu',
+    developerName3: 'Dr. Fadi Fayez',
+    moreInfo: '更多信息: chue9@manukaumail.com or xxx'
   },
 
   version:{
     version: '版本',
   },
 
+  disclaimer: {
+    title: '免責聲明',
+    disclaimer: `用戶在Tic Tac Toe AI App 中所對戰的紀錄將會以不記名的方式儲存,數據將會被拿到學術研究. 你已同意以上聲明`,
+  }
 };

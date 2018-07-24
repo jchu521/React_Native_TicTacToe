@@ -5,15 +5,29 @@ import configureStore from './src/components/store/configureStore'
 import * as Progress from 'react-native-progress';
 import { Colors } from './src/styles/colors'
 import codePush from 'react-native-code-push'
-import { Text, View, AsyncStorage } from 'react-native';
+import { Text, View, AsyncStorage, DeviceEventEmitter } from 'react-native';
 
 const store = configureStore();
 type Props = {};
+
+// gets the current screen from navigation state
+function getActiveRouteName(navigationState) {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+  // dive into nested navigators
+  if (route.routes) {
+    return getActiveRouteName(route);
+  }
+  return route.routeName;
+}
+
 class App extends Component<Props> {
 
   componentWillMount(){
-    codePush.notifyAppReady();
-    this._retrieveData();
+    // codePush.notifyAppReady();
+    // this._retrieveData();
   }
 
   _retrieveData = async () => {
@@ -50,7 +64,16 @@ class App extends Component<Props> {
 
     return (
       <Provider store={store} >
-          <AppStack />
+          <AppStack
+            onNavigationStateChange={(prevState, currentState) => {
+
+              let route = currentState;
+              while (route.routes) {
+                route = route.routes[route.index];
+              }
+              DeviceEventEmitter.emit('routeStateChanged', route);
+            }}
+          />
       </Provider>
     );
   }

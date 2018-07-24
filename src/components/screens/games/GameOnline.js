@@ -33,20 +33,41 @@ class GameOnline extends React.Component {
   }
 
   componentWillUnmount() {
+    this.routeSubscription.remove();
     clearInterval(this._interval);
+    console.log('1111111');
   }
 
   componentDidMount(){
       //get from api yourTurn, mark= 'O' or 'X'
+      // this.setState({
+      //   uuid: DeviceInfo.getUniqueID(),
+      //   isYourTurn: false,
+      // })
+      // this._newGame(DeviceInfo.getUniqueID());
+      // this._interval = setInterval(this._heartBeatInterval, 1000);
+      this.routeSubscription = DeviceEventEmitter.addListener('routeStateChanged', this.onRouteStateChanged);
+  }
+  onRouteStateChanged = (route) => {
+    const { state } = this.props.navigation;
+    if (state.routeName === route.routeName && state.key === route.key) {
+      // resume
       this.setState({
         uuid: DeviceInfo.getUniqueID(),
         isYourTurn: false,
       })
       this._newGame(DeviceInfo.getUniqueID());
       this._interval = setInterval(this._heartBeatInterval, 1000);
+      let isFocused = this.props.navigation.isFocused();
+      console.log("1", state.routeName, route.routeName, state.key, route.key);
 
+    } else if(route.routeName !== 'OnlineMode' && route.key !== 'OnlineMode'){
+      // pause
+      let isFocused = this.props.navigation.isFocused();
+      clearInterval(this._interval);
+      console.log("2", state.routeName, route.routeName, state.key, route.key);
+    }
   }
-
 
   _heartBeatInterval = () => {
       const { getSteps, newGame } = this.props;
@@ -193,6 +214,9 @@ class GameOnline extends React.Component {
     else
     {
         status = this.state.isYourTurn ? I18n.t('game.yourTurn') : I18n.t('game.waiting') ;
+    }
+    if( this.props.navigation.state.routeName !== 'OnlineMode'){
+      return;
     }
     return(
       <ImageBackground source={require('../../../images/default.jpg')} style={GameStyle.rootContainer}>
