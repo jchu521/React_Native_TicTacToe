@@ -21,6 +21,8 @@ const inputButtons = [
     [6, 7, 8]
 ];
 
+const HeartBeatTime = 3000;
+
 class GameOnline extends React.Component {
   state = {
       uuid: null,
@@ -43,7 +45,7 @@ class GameOnline extends React.Component {
         isYourTurn: false,
       })
       this._newGame(DeviceInfo.getUniqueID());
-      this._interval = setInterval(this._heartBeatInterval, 1000);
+      this._interval = setInterval(this._heartBeatInterval, HeartBeatTime);
 
   }
 
