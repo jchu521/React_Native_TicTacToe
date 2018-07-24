@@ -101,11 +101,11 @@ class GameOnlineNode extends React.Component {
 
   _stepsHandler = (nextProps) =>{
       if(nextProps.steps.steps){
-        const {steps, role, start} = nextProps.steps;
-        console.log('In _stepsHandler:');
-        console.log(nextProps.steps);
-        console.log('role:'+role);
-
+        const {steps, role, start, oppoDisc} = nextProps.steps;
+        if(oppoDisc){
+          this._onOpponentDisconnect();
+          return;
+        }
         if(start)
         {
           let isYourTurn = false;
@@ -154,6 +154,14 @@ class GameOnlineNode extends React.Component {
         }
       }
     };
+  _onOpponentDisconnect = () => {
+    this.setState({
+      isYourTurn: false,
+      modelStatus: 'gameOver',
+      modelMsg: 'Opponent disconnected!',
+      roundStatus: 'over',
+    });
+  };
 
   _checkNewStep = (data) => {
     const {role, squares, numSteps, isYourTurn, lastStep} = data;
