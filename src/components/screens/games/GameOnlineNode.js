@@ -106,11 +106,16 @@ class GameOnlineNode extends React.Component {
           this._onOpponentDisconnect();
           return;
         }
+
         if(start)
         {
           let isYourTurn = false;
           let numSteps = this.state.numSteps;
           let squares = this.state.squares;
+          if(numSteps > steps.length && !this.state.isYourTurn){
+            this._playPiece(null);
+            return;
+          }
           if(steps.length > this.state.numSteps){
             numSteps = steps.length;
             for(var i = this.state.numSteps; i < steps.length; i++){
@@ -205,6 +210,14 @@ class GameOnlineNode extends React.Component {
       });
     };
 
+  _playPiece = (data) => {
+    const { addStepNode } = this.props;
+    if(data){
+      this.lastPlay = data;
+    }
+    addStepNode(this.lastPlay);
+  };
+
   _newGame = () => {
     this.setState({
         squares: Array(9).fill(null),
@@ -265,14 +278,12 @@ class GameOnlineNode extends React.Component {
         },
       });
 
-      const { addStepNode } = this.props;
-      addStepNode({
+      this._playPiece({
         uuid: this.state.uuid,
         index: this.state.numSteps+1,
         position: input,
         piece: nextPiece,
-      })
-
+      });
     };
 
   render(){
