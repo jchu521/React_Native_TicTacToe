@@ -25,8 +25,8 @@ export default class GameAiMode extends React.Component {
         xIsNext: false,
         mark: false,
         isOpen: false,
-        message:'',
-        modeTitle: '',
+        message: null,
+        modeTitle: null,
         gameLevel: null,
     }
 
@@ -99,14 +99,10 @@ export default class GameAiMode extends React.Component {
     }
 
     _onReset(){
-      console.log('_onReset');
-      this.refs['result'].close();
         this.setState({
             squares: Array(9).fill(null),
             xIsNext: this.state.mark,
             isOpen: !this.state.isOpen,
-            message: '',
-
         });
     }
     _renderModal() {
