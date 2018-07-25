@@ -25,8 +25,8 @@ export default class GameAiMode extends React.Component {
         xIsNext: false,
         mark: false,
         isOpen: false,
-        message:null,
-        modeTitle:null,
+        message:'',
+        modeTitle: '',
         gameLevel: null,
     }
 
@@ -69,8 +69,7 @@ export default class GameAiMode extends React.Component {
     // }
 
     render() {
-        const { mark, message, isOpen, modeTitle } = this.state;
-
+        const { mark, isOpen, modeTitle } = this.state;
         return (
           <ImageBackground source={require('../../../images/default.jpg')} style={GameStyle.rootContainer}>
             <View style={{flex: 1, justifyContent:'center', alignItems:'center'}}>
@@ -94,29 +93,39 @@ export default class GameAiMode extends React.Component {
               <View style={GameStyle.gameBoard}>{this._renderInputButtons()}</View>
             </View>
             <View style={{flex: 1}} />
-            <Modal
-              style={[GameStyle.messageModal, {backgroundColor: Colors.blue}]}
-              position={"center"}
-              ref={"result"}
-              backdropPressToClose={false}
-              isOpen={isOpen}
-              >
-              <Text h2>{message}</Text>
-              <TouchableOpacity  style={{marginTop:20}} onPress={() => this._onReset()}>
-                <Image source={require('../../../images/ResetButton.png')}/>
-              </TouchableOpacity>
-            </Modal>
+            {isOpen?this._renderModal():null}
           </ImageBackground>
         );
     }
 
     _onReset(){
+      console.log('_onReset');
+      this.refs['result'].close();
         this.setState({
             squares: Array(9).fill(null),
             xIsNext: this.state.mark,
             isOpen: !this.state.isOpen,
+            message: '',
 
         });
+    }
+    _renderModal() {
+      const { message, isOpen} = this.state;
+      return (
+        <Modal
+          style={[GameStyle.messageModal, {backgroundColor: Colors.blue}]}
+          position={"center"}
+          ref={"result"}
+          backdropPressToClose={false}
+          isOpen={true}
+          swipeToClose={true}
+          >
+          <Text h2>{message}</Text>
+          <TouchableOpacity  style={{marginTop:20}} onPress={() => this._onReset()}>
+            <Image source={require('../../../images/ResetButton.png')}/>
+          </TouchableOpacity>
+        </Modal>
+      );
     }
     _renderInputButtons() {
         let views = [];
@@ -262,8 +271,7 @@ export default class GameAiMode extends React.Component {
         //   return ;
         // }
         let pos = this._calculateWeight(squares);
-
-        console.log(pos);
+        console.log('autoClickForAi pos:'+pos);
         // if(squares[pos]){
         //     this._displayMessage('Draw');
         //     return;
@@ -289,7 +297,6 @@ export default class GameAiMode extends React.Component {
 
     _onInputButtonPressed(input) {
         const squares = this.state.squares;
-
         if(CheckWinner(squares, this.state.mark) || squares[input]){
           return ;
         }
