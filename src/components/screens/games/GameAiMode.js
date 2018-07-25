@@ -69,7 +69,7 @@ export default class GameAiMode extends React.Component {
         const { mark, isOpen } = this.state;
         return (
           <ImageBackground source={require('../../../images/default.jpg')} blurRadius={3} style={[GameStyle.rootContainer]}>
-            <View style={[GameStyle.rootContainer,{width: '60%', flex: 1}]}>
+            <View style={[GameStyle.rootContainer,{width: '60%', flex: 1, paddingTop: 20}]}>
               <Text style={{fontSize: 16, marginBottom:10, color:'blue'}} >{I18n.t('game.selectMode')}</Text>
               <SwitchSelector
                 initial={0}

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from './src/components/store/configureStore'
 import * as Progress from 'react-native-progress';
 import { Colors } from './src/styles/colors'
-import codePush from 'react-native-code-push'
+import codePush from 'react-native-code-push';
 import { Text, View, AsyncStorage, DeviceEventEmitter } from 'react-native';
 
 const store = configureStore();
@@ -28,6 +28,7 @@ class App extends Component<Props> {
   componentWillMount(){
     // codePush.notifyAppReady();
     // this._retrieveData();
+    codePush.sync();
   }
 
   _retrieveData = async () => {
@@ -64,16 +65,7 @@ class App extends Component<Props> {
 
     return (
       <Provider store={store} >
-          <AppStack
-            onNavigationStateChange={(prevState, currentState) => {
-
-              let route = currentState;
-              while (route.routes) {
-                route = route.routes[route.index];
-              }
-              DeviceEventEmitter.emit('routeStateChanged', route);
-            }}
-          />
+          <AppStack />
       </Provider>
     );
   }
