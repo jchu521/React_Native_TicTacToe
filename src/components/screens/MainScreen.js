@@ -17,7 +17,6 @@ class MainScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
 
-    console.log(this);
     return (
       <ImageBackground source={require('../../images/default.jpg')} blurRadius={3} style={views.container}>
         <View style={[views.container, {flex: 2}]}>
