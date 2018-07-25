@@ -305,7 +305,7 @@ class GameOnlineNode extends React.Component {
         status = this.state.isYourTurn ? I18n.t('game.yourTurn') : I18n.t('game.waiting') ;
     }
     return(
-      <ImageBackground source={require('../../../images/default.jpg')} style={GameStyle.rootContainer}>
+      <ImageBackground source={require('../../../images/default.jpg')} blurRadius={3} style={GameStyle.rootContainer}>
         <View style={{flex: 1, justifyContent:'center', alignItems:'center'}}>
           <Text h2 >{status}</Text>
         </View>

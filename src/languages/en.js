@@ -1,8 +1,8 @@
 export default {
   game: {
-    hard: 'Hard Mode',
-    medium: 'Medium Mode',
-    easy: 'Easy Mode',
+    hard: 'Hard',
+    medium: 'Medium',
+    easy: 'Easy',
     reset: 'Reset',
     aiMode: 'Ai Mode',
     failed: 'You have loss!',
@@ -12,12 +12,15 @@ export default {
     yourTurn: 'Your turn!',
     draw: 'Draw!',
     newRound: 'New Round',
+    selectOorX: 'Select Nought or Cross',
+    selectMode: 'Select Mode',
   },
 
   mainScreen: {
     // start: 'Start',
     computer: 'Single player',
-    online: 'Network play'
+    online: 'Network play',
+    info: 'Info',
   },
 
   //selectAILevelsScreen

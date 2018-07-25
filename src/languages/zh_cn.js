@@ -12,10 +12,15 @@ export default {
     yourTurn: '该你了！',
     draw: '平了！',
     newRound: '再来一局？',
+    selectOorX: 'Select Nought or Cross',
+    selectMode: 'Select Mode',
   },
 
   mainScreen: {
-    start: '开始',
+    // start: 'Start',
+    computer: '智能模式',
+    online: '在线对战',
+    info: '信息',
   },
 
   //selectAILevelsScreen

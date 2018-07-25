@@ -7,15 +7,20 @@ export default {
     aiMode: '電腦模式',
     failed: '你失敗了！',
     success: '獲勝！',
-    onlineMode: '在線對戰',
+    onlineMode: '網路對戰',
     waiting: '请等待...',
     yourTurn: '換你了！',
     draw: '平手！',
     newRound: '再来一局？',
+    selectOorX: ' 選擇 Ｏ 或 Ｘ',
+    selectMode: '選擇難度',
   },
 
   mainScreen: {
-    start: '開始',
+    // start: 'Start',
+    computer: '單人模式',
+    online: '網路對戰',
+    info: '訊息',
   },
 
   //selectAILevelsScreen

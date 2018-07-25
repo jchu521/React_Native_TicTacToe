@@ -14,7 +14,7 @@ export default class OnlineScreen extends Component {
     const { navigate } = this.props.navigation
 
     return(
-      <ImageBackground source={require('../../images/default.jpg')} style={views.container}>
+      <ImageBackground source={require('../../images/default.jpg')} blurRadius={3} style={views.container}>
         <View style={views.container}>
           <Text h1>Tic Tac Toe</Text>
         </View>

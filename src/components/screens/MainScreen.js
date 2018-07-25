@@ -19,28 +19,42 @@ class MainScreen extends Component {
 
     console.log(this);
     return (
-      <ImageBackground source={require('../../images/mainScreen.png')} style={views.container}>
-        <View style={{flex:1}}/>
-        <View style={views.container}>
-          <TouchableOpacity
-            style={[
-              buttons.DefaultBtn,
-              {backgroundColor: Colors.yellow}
-            ]}
-            onPress={() => navigate('SelectGameMode')}
-          >
-            <Text h2 style={{color:'white'}}>{I18n.t('mainScreen.computer')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              buttons.DefaultBtn,
-              {backgroundColor: Colors.yellow}
-            ]}
-            onPress={() => navigate('OnlineMode')}
-          >
-            <Text h2 style={{color:'white'}}>{I18n.t('mainScreen.online')}</Text>
-          </TouchableOpacity>
+      <ImageBackground source={require('../../images/default.jpg')} blurRadius={3} style={views.container}>
+        <View style={[views.container, {flex: 2}]}>
+          <Text h1>Tic Tac Toe</Text>
         </View>
+
+        <View style={[buttons.buttonGroup, {flex: 3}]}>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => navigate('AIMode')}
+            >
+              <Text h2 style={{color:'white'}}>{I18n.t('mainScreen.computer')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => navigate('OnlineMode')}
+            >
+              <Text h2 style={{color:'white'}}>{I18n.t('mainScreen.online')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple}
+              ]}
+              onPress={() => navigate('Info')}
+            >
+              <Text h2 style={{color:'white'}}>{I18n.t('mainScreen.info')}</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={{flex:1}} />
+
       </ImageBackground>
     );
   }

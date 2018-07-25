@@ -5,7 +5,7 @@ import AboutScreen from '../screens/AboutScreen';
 import DisclaimerScreen from '../screens/Disclaimer';
 import AIModeScreen from '../screens/games/GameAiMode';
 import OnlineGameScreen from '../screens/games/GameOnlineNode';
-import {bottomTab1, bottomTab2} from '../navigations/bottomTabNavigator';
+import {bottomTab1, bottomTab2, bottomTab3} from '../navigations/bottomTabNavigator';
 import React from 'react';
 
 
@@ -21,7 +21,7 @@ export default createStackNavigator({
     )
   },
 
-  SelectGameMode: {
+  AIMode: {
     screen: bottomTab1,
     navigationOptions: {
      header: null,
@@ -35,12 +35,11 @@ export default createStackNavigator({
     }
   },
 
-  AIMode: {
-    screen: AIModeScreen,
+  Info: {
+    screen: bottomTab3,
     navigationOptions: {
      header: null,
     }
-
   },
 
   About: {
