@@ -116,14 +116,28 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
-
+    signingConfigs { //Kevin, Sign for android
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
     buildTypes {
+        releaseStaging {
+            buildConfigField "String", "CODEPUSH_KEY", '"_dAPYLPEFRxl4NWQ91mRGB3giQTdbe706cbb-1dd8-4d14-a85d-2847152095d4"'
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+ 			buildConfigField "String", "CODEPUSH_KEY", '"L4kAU0nPy0AHm14vBISYG5B4GdQWbe706cbb-1dd8-4d14-a85d-2847152095d4"'
+             signingConfig signingConfigs.release
         }
     }
-
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -140,11 +154,8 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-code-push')
-    compile project(':appcenter-crashes')
-    compile project(':appcenter-analytics')
-    compile project(':appcenter')
     compile project(':react-native-device-info')
+    compile project(':react-native-code-push')
     compile project(':react-native-i18n')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
