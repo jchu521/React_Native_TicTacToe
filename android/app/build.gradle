@@ -95,8 +95,8 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.tictactoe"
@@ -127,9 +127,11 @@ android {
         }
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "CODEPUSH_KEY", '"_dAPYLPEFRxl4NWQ91mRGB3giQTdbe706cbb-1dd8-4d14-a85d-2847152095d4"'
+        }
         releaseStaging {
             buildConfigField "String", "CODEPUSH_KEY", '"_dAPYLPEFRxl4NWQ91mRGB3giQTdbe706cbb-1dd8-4d14-a85d-2847152095d4"'
-            signingConfig signingConfigs.release
         }
         release {
             minifyEnabled enableProguardInReleaseBuilds
