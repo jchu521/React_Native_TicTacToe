@@ -1,5 +1,5 @@
 import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
-import GameOnlineScreen from '../screens/games/GameOnline';
+import GameOnlineScreen from '../screens/games/GameOnlineNode';
 import GameAiModeScreen from '../screens/games/GameAiMode';
 import InfoScreen from '../screens/InfoScreen';
 

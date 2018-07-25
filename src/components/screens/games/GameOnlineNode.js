@@ -40,8 +40,8 @@ class GameOnlineNode extends React.Component {
   componentWillUnmount() {
     console.log('componentWillUnmount')
     this._stopHeartBeat();
-    // this.viewWillBlur.remove();
-    // this.viewDidFocus.remove();
+    this.viewWillBlur.remove();
+    this.viewDidFocus.remove();
     // AppState.removeEventListener('change', this._handleAppStateChange);
   }
 
@@ -57,8 +57,8 @@ class GameOnlineNode extends React.Component {
       }
       this._interval = setInterval(this._heartBeatInterval, HeartBeatTime);
 
-      // this.viewWillBlur = this.props.navigation.addListener('didBlur',this._willBlur);
-      // this.viewDidFocus = this.props.navigation.addListener('didFocus',this._didFocus);
+      this.viewWillBlur = this.props.navigation.addListener('didBlur',this._willBlur);
+      this.viewDidFocus = this.props.navigation.addListener('didFocus',this._didFocus);
       // AppState.addEventListener('change', this._handleAppStateChange);
   }
 
@@ -66,11 +66,17 @@ class GameOnlineNode extends React.Component {
       console.log('handleAppStateChange:'+appState);
    }
 
-  _didBlur = (obj) =>{
-    console.log(obj)
+  _willBlur = (obj) =>{
+    if(this._interval){
+      this._bk_interval = this._interval;
+      this._stopHeartBeat();
+    }
   };
   _didFocus = (obj) =>{
-    console.log(obj)
+    if(this._bk_interval){
+      this._startHeartBeat();
+      this._bk_interval = null;
+    }
   };
 
   _startHeartBeat = () => {
@@ -94,8 +100,8 @@ class GameOnlineNode extends React.Component {
     };
 
   componentWillReceiveProps(nextProps) {
-    // console.log(nextProps);
-    // console.log(this.state);
+    console.log(nextProps);
+    console.log(this.state);
     this._stepsHandler(nextProps);
   }
 
