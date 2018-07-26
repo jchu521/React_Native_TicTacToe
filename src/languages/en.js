@@ -14,6 +14,7 @@ export default {
     newRound: 'New Round',
     selectOorX: 'Select Nought or Cross',
     selectMode: 'Select Mode',
+    opponentDisconnect: 'Opponent offline!',
   },
 
   mainScreen: {

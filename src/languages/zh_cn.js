@@ -14,6 +14,7 @@ export default {
     newRound: '再来一局？',
     selectOorX: '选择 O 或 X',
     selectMode: '选择模式',
+    opponentDisconnect: '对方已离线！',
   },
 
   mainScreen: {
