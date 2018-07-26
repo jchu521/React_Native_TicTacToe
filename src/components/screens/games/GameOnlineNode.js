@@ -60,6 +60,7 @@ class GameOnlineNode extends React.Component {
       this.viewWillBlur = this.props.navigation.addListener('didBlur',this._willBlur);
       this.viewDidFocus = this.props.navigation.addListener('didFocus',this._didFocus);
       // AppState.addEventListener('change', this._handleAppStateChange);
+      this.miss = 0;
   }
 
   _handleAppStateChange = (appState) => {
@@ -119,8 +120,15 @@ class GameOnlineNode extends React.Component {
           let numSteps = this.state.numSteps;
           let squares = this.state.squares;
           if(numSteps > steps.length && !this.state.isYourTurn){
-            this._playPiece(null);
-            return;
+            this.miss++;
+            if(this.miss > 1){
+              numSteps = steps.length;
+              this._playPiece(null);
+              return;
+            }
+          }
+          else {
+            this.miss = 0;
           }
           if(steps.length > this.state.numSteps){
             numSteps = steps.length;
@@ -313,27 +321,33 @@ class GameOnlineNode extends React.Component {
           <View style={GameStyle.gameBoard}>{this._renderInputButtons()}</View>
         </View>
         <View style={{flex: 1}} />
-
-        <Modal
-          style={[GameStyle.messageModal, {backgroundColor: Colors.blue}]}
-          position={"center"}
-          ref={"result"}
-          backdropPressToClose={false}
-          isOpen={this.state.modelStatus==='gameOver'}
-          >
-          <Text h2>{this.state.modelMsg}</Text>
-          <TouchableOpacity
-            style={[
-              button.ModelBtn,
-              {backgroundColor: Colors.lightBlue}
-            ]}
-            onPress={() => this._newGame()}
-          >
-            <Text h4 style={{color:'white'}}>{'New Game'}</Text>
-          </TouchableOpacity>
-        </Modal>
+        {this.state.modelStatus==='gameOver'?this._renderModal():null}
       </ImageBackground>
     )
+  }
+
+  _renderModal() {
+    const { message, isOpen} = this.state;
+    return (
+      <Modal
+        style={[GameStyle.messageModal, {backgroundColor: Colors.blue}]}
+        position={"center"}
+        ref={"result"}
+        backdropPressToClose={false}
+        isOpen={true}
+        >
+        <Text h2>{this.state.modelMsg}</Text>
+        <TouchableOpacity
+          style={[
+            button.ModelBtn,
+            {backgroundColor: Colors.lightBlue}
+          ]}
+          onPress={() => this._newGame()}
+        >
+          <Text h4 style={{color:'white'}}>{'New Game'}</Text>
+        </TouchableOpacity>
+      </Modal>
+    );
   }
 
   _calculateWinner = (squares) => {
