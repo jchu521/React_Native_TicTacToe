@@ -61,6 +61,9 @@ class GameAiMode extends React.Component {
     }
 
     _displayMessage = (message) => {
+      if(this.state.isOpen) {
+        return;
+      }
       switch (message) {
         case 'Win':
           this.setState({message: I18n.t('game.success'), isOpen:true});
