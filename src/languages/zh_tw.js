@@ -60,7 +60,7 @@ export default {
     developerName1: 'Jonathan Chueh',
     developerName2: 'Kevin Liu',
     developerName3: 'Dr. Fadi Fayez',
-    moreInfo: '更多信息: chue9@manukaumail.com or xxx'
+    moreInfo: '更多信息: chue9@manukaumail.com or liu892@manukaumail.com'
   },
 
   version:{

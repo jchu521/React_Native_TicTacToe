@@ -54,23 +54,21 @@ export default {
   },
 
   about:{
-    about:'About',
-    description: 'The Tic Tac Toe AI app is a project conducted at Manukau' +
-      ' Information Technology-digital technologies department to investigate '+
-      'artificial intelligence Technology in gaming. The app has been designed and developed by ',
+    about:'关于',
+    description: '此项目所产生的数据将用在 Manukau Information Technology-数字科技部门用于人工智能技术的研究 '+
+      '项目设计和开发者是',
     developerName1: 'Jonathan Chueh',
     developerName2: 'Kevin Liu',
     developerName3: 'Dr. Fadi Fayez',
-    moreInfo: 'For more info: chue9@manukaumail.com or xxx'
+    moreInfo: '更多信息: chue9@manukaumail.com or liu892@manukaumail.com'
   },
 
   version:{
-    version: 'Version',
+    version: '版本',
   },
 
   disclaimer: {
-    title: 'Disclaimer',
-    disclaimer: `The data in this app is anonymous and only will be used for
-      research. When playing with Tic Tac Toe AI app you have agrumed to the above.`
+    title: '免责声明',
+    disclaimer: `用户在 Tic Tac Toe AI App 中所产生的对战记录将会以不记名的方式储存，数据将会被用到学术研究，你已同意以上声明`,
   }
 };

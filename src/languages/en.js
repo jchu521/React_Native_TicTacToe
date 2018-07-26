@@ -61,7 +61,7 @@ export default {
     developerName1: 'Jonathan Chueh',
     developerName2: 'Kevin Liu',
     developerName3: 'Dr. Fadi Fayez',
-    moreInfo: 'For more info: chue9@manukaumail.com or xxx'
+    moreInfo: 'For more info: chue9@manukaumail.com or liu892@manukaumail.com'
   },
 
 
