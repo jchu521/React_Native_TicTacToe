@@ -115,7 +115,7 @@ export const addStepNode = (data) => (dispatch) => {
     }).catch(C.error);
 }
 //rounds
-//PUT /round
+//POST /round
 export const putResult = (data) => (dispatch) => {
     const { uuid, status, winner, reason, lastStep } = data;
     let url = 'https://www.breakself.tech/round/';
@@ -131,6 +131,24 @@ export const putResult = (data) => (dispatch) => {
             'reason': reason,
             'lastStep': lastStep,
         })
+    };
+    fetch(url, content).then(C.parseResponse).then((res) => {
+        dispatch({
+            type: C.PUT_RESULT,
+            res
+        });
+    }).catch(C.error);
+}
+
+//POST AI results
+export const postAIResult = (data) => (dispatch) => {
+    let url = 'https://www.breakself.tech/computer/';
+    // console.log(url);
+    const content = {
+        headers: C.headers,
+        method: 'POST',
+        credentials: C.credentials,
+        body: JSON.stringify(data)
     };
     fetch(url, content).then(C.parseResponse).then((res) => {
         dispatch({

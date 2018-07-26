@@ -8,6 +8,8 @@ const misc = (state=[], action) => {
             return res;
         case C.PUT_RESULT:
             return res;
+        case C.POST_AI_RESULT:
+            return res;
         default:
             return false;
     }

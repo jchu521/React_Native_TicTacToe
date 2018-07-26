@@ -6,12 +6,17 @@ import SwitchSelector from 'react-native-switch-selector';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Modal from 'react-native-modalbox';
 
-import {CheckWinner, _displayMessage} from '../../utils/checkWinner';
 import InputButton from '../../utils/InputButton';
 import GameStyle from '../../../styles/GameStyle';
 import button from '../../../styles/button';
 import text from '../../../styles/text';
 import { Colors } from '../../../styles/colors';
+import DeviceInfo from 'react-native-device-info';
+
+import { bindActionCreators } from "redux";
+import * as actions from '../../actions/index';
+import { connect } from 'react-redux';
+import { AsyncStorage, DeviceEventEmitter } from 'react-native';
 
 const inputButtons = [
     [0, 1, 2],
@@ -19,7 +24,7 @@ const inputButtons = [
     [6, 7, 8]
 ];
 
-export default class GameAiMode extends React.Component {
+class GameAiMode extends React.Component {
     state = {
         squares: Array(9).fill(null),
         xIsNext: false,
@@ -27,6 +32,10 @@ export default class GameAiMode extends React.Component {
         isOpen: false,
         message: null,
         gameLevel: null,
+    }
+
+    componentDidMount(){
+        this.steps = [];
     }
 
     _selectGameMode = (value) => {
@@ -55,15 +64,46 @@ export default class GameAiMode extends React.Component {
       switch (message) {
         case 'Win':
           this.setState({message: I18n.t('game.success'), isOpen:true});
+          this._gameOver(this.state.mark?'X':'O');
           break;
         case 'Loss':
           this.setState({message: I18n.t('game.failed'), isOpen:true});
+          this._gameOver(this.state.mark?'O':'X');
           break;
         case 'Draw':
           this.setState({message: I18n.t('game.draw'), isOpen:true});
+          this._gameOver('=');
           break;
       }
     }
+
+    _gameOver = (winner) => {
+      if(this.steps.length < 1){
+        return;
+      }
+      var data = {};
+      data.uuid = DeviceInfo.getUniqueID();
+      data.role = this.state.mark?'X':'O';
+      data.winner = winner;
+      data.steps = [];
+      for(var i = 0; i < this.steps.length; i++){
+        data.steps.push({
+          index: i+1,
+          position: this.steps[i].position,
+          piece: this.steps[i].piece,
+        });
+      }
+      this._postResult(data);
+    };
+    _postResult = (data) => {
+      console.log(data);
+      const { postAIResult } = this.props;
+      postAIResult(data);
+    };
+
+    _playPiece = (data) => {
+      this.steps.push(data);
+    };
 
     render() {
         const { mark, isOpen } = this.state;
@@ -107,6 +147,7 @@ export default class GameAiMode extends React.Component {
     }
 
     _onReset(){
+        this.steps = [];
         this.setState({
             squares: Array(9).fill(null),
             xIsNext: this.state.mark,
@@ -279,6 +320,10 @@ export default class GameAiMode extends React.Component {
         }
 
         squares[pos] = this.state.xIsNext?'X':'O';
+        this._playPiece({
+          position: pos,
+          piece: squares[pos],
+        });
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext,
@@ -296,6 +341,10 @@ export default class GameAiMode extends React.Component {
             return;
         }
         squares[input] = this.state.xIsNext?'X':'O';
+        this._playPiece({
+          position: input,
+          piece: squares[input],
+        });
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext
@@ -308,3 +357,14 @@ export default class GameAiMode extends React.Component {
     }
 
 }
+
+
+const mapStateToProps = (state) => ({
+  ...state
+})
+
+const mapDispatchProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchProps)(GameAiMode)
