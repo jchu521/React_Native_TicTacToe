@@ -12,8 +12,8 @@ export default {
     yourTurn: '该你了！',
     draw: '平了！',
     newRound: '再来一局？',
-    selectOorX: 'Select Nought or Cross',
-    selectMode: 'Select Mode',
+    selectOorX: '选择 O 或 X',
+    selectMode: '选择模式',
   },
 
   mainScreen: {
@@ -45,7 +45,7 @@ export default {
     // contact: '联系',
     about:'关于',
     updateSettings: 'Update Settings',
-    disclaimer: 'Disclaimer',
+    disclaimer: '免责声明',
   },
 
   contact:{
@@ -55,7 +55,7 @@ export default {
 
   about:{
     about:'关于',
-    description: '此项目所产生的数据将用在 Manukau Information Technology-数字科技部门用于人工智能技术的研究 '+
+    description: '此项目是进行在 Manukau Information Technology-数字科技部门用于研究人工智能技术 '+
       '项目设计和开发者是',
     developerName1: 'Jonathan Chueh',
     developerName2: 'Kevin Liu',

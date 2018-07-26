@@ -55,7 +55,7 @@ export default {
 
   about:{
     about:'關於',
-    description: '此項目是進行在 Manukau Information Technology-數位科技部門用於研究遊戲人工智慧技術 '+
+    description: '此項目是進行在 Manukau Information Technology-數位科技部門用於研究遊戲人工智能技術 '+
       '項目設計和開法者是',
     developerName1: 'Jonathan Chueh',
     developerName2: 'Kevin Liu',
