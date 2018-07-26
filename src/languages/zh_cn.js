@@ -55,7 +55,7 @@ export default {
 
   about:{
     about:'关于',
-    description: '此项目所产生的数据将用在 Manukau Information Technology-数字科技部门用于人工智能技术的研究 '+
+    description: '此项目是进行在 Manukau Information Technology-数字科技部门用于研究人工智能技术 '+
       '项目设计和开发者是',
     developerName1: 'Jonathan Chueh',
     developerName2: 'Kevin Liu',
