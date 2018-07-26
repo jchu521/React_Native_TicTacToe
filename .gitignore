@@ -61,5 +61,6 @@ buck-out/
 /android/build
 /android/.gradle
 /android/app/build
+/android/app/src/main/assets/index.android.bundle
 /ios/bundle
 /photoshop
