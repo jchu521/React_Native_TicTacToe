@@ -35,6 +35,8 @@ class GameOnlineNode extends React.Component {
       roundStatus: null,
       modelStatus: null,
       modelMsg: null,
+      modelButtonTip: null,
+      online: 0,
   }
 
   componentWillUnmount() {
@@ -111,9 +113,14 @@ class GameOnlineNode extends React.Component {
         return;
       }
       if(nextProps.steps.steps){
-        const {steps, role, start, oppoDisc} = nextProps.steps;
+        const {steps, role, start, oppoDisc, online} = nextProps.steps;
         if(oppoDisc){
           this._onOpponentDisconnect();
+          return;
+        }
+
+        if(this.state.numSteps > 0 && online < this.state.online){
+          this._onServerReset();
           return;
         }
 
@@ -148,6 +155,7 @@ class GameOnlineNode extends React.Component {
               isYourTurn: isYourTurn,
               squares: squares,
               lastStep: null,
+              online: online,
             });
           }else {
             this.setState({
@@ -158,6 +166,8 @@ class GameOnlineNode extends React.Component {
               roundStatus: 'playing',
               modelStatus: null,
               modelMsg: null,
+              modelButtonTip: null,
+              online: online,
             });
           }
 
@@ -172,6 +182,8 @@ class GameOnlineNode extends React.Component {
             roundStatus: 'waiting',
             modelStatus: null,
             modelMsg: null,
+            modelButtonTip: null,
+            online: online,
           });
         }
       }
@@ -186,8 +198,20 @@ class GameOnlineNode extends React.Component {
     });
   };
 
+  _onServerReset = () => {
+    this._stopHeartBeat();
+    this.setState({
+      isYourTurn: false,
+      modelStatus: 'gameOver',
+      modelMsg: I18n.t('game.serverReset'),
+      modelButtonTip: I18n.t('game.tryAgain'),
+      roundStatus: 'over',
+      online: 0,
+    });
+  };
+
   _checkNewStep = (data) => {
-    const {role, squares, numSteps, isYourTurn, lastStep} = data;
+    const {role, squares, numSteps, isYourTurn, lastStep, online} = data;
     let winner = this._calculateWinner(squares);
     console.log('_checkNewStep role:'+role);
     if(winner){
@@ -199,6 +223,7 @@ class GameOnlineNode extends React.Component {
         modelStatus: 'gameOver',
         modelMsg: winner === role? I18n.t('game.success') : (winner === '='? I18n.t('game.draw') : I18n.t('game.failed')),
         roundStatus: 'over',
+        online: online,
       });
       this._stopHeartBeat();
       this._setResult(winner,lastStep);
@@ -209,6 +234,7 @@ class GameOnlineNode extends React.Component {
         squares: squares,
         numSteps: numSteps,
         isYourTurn: isYourTurn,
+        online: online,
       });
     }
   };
@@ -245,6 +271,7 @@ class GameOnlineNode extends React.Component {
         roundStatus: null,
         modelStatus: null,
         modelMsg: null,
+        modelButtonTip: null,
     });
     this._startHeartBeat();
   };
@@ -294,6 +321,7 @@ class GameOnlineNode extends React.Component {
           position: input,
           piece: nextPiece,
         },
+        online: this.state.online,
       });
 
       this._playPiece({
@@ -348,7 +376,7 @@ class GameOnlineNode extends React.Component {
           ]}
           onPress={() => this._newGame()}
         >
-          <Text h4 style={{color:'white'}}>{I18n.t('game.newRound')}</Text>
+          <Text h4 style={{color:'white'}}>{this.state.modelButtonTip? this.state.modelButtonTip:I18n.t('game.newRound')}</Text>
         </TouchableOpacity>
       </Modal>
     );
