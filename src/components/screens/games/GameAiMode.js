@@ -31,7 +31,7 @@ class GameAiMode extends React.Component {
         mark: false,
         isOpen: false,
         message: null,
-        gameLevel: null,
+        gameLevel: 5,
     }
 
     componentDidMount(){
@@ -126,8 +126,6 @@ class GameAiMode extends React.Component {
                   { label: I18n.t('game.hard'), value: 'HARD' },
                 ]}
               />
-            </View>
-            <View style={[GameStyle.rootContainer,{width: '60%', flex: 1}]}>
               <Text style={{fontSize: 16, marginBottom:10, color:'blue'}} >{I18n.t('game.selectOorX')}</Text>
               <SwitchSelector
                 initial={0}
@@ -141,7 +139,7 @@ class GameAiMode extends React.Component {
                 ]}
               />
             </View>
-            <View style={{flex: 3, justifyContent: 'center'}} >
+            <View style={{flex: 3, justifyContent: 'center', alignItems:'center'}} >
               <View style={GameStyle.gameBoard}>{this._renderInputButtons()}</View>
             </View>
             {isOpen?this._renderModal():null}

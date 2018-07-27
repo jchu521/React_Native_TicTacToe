@@ -27,7 +27,7 @@ class MainScreen extends Component {
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
-                {backgroundColor: Colors.lightPurple}
+                {backgroundColor: Colors.lightPurple, height: 50}
               ]}
               onPress={() => navigate('AIMode')}
             >
@@ -36,7 +36,7 @@ class MainScreen extends Component {
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
-                {backgroundColor: Colors.lightPurple}
+                {backgroundColor: Colors.lightPurple, height: 50}
               ]}
               onPress={() => navigate('OnlineMode')}
             >
@@ -45,7 +45,7 @@ class MainScreen extends Component {
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
-                {backgroundColor: Colors.lightPurple}
+                {backgroundColor: Colors.lightPurple, height: 50}
               ]}
               onPress={() => navigate('Info')}
             >
