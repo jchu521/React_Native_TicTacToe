@@ -17,6 +17,7 @@ export default {
     opponentDisconnect: 'Opponent offline!',
     serverReset: 'Server reset!',
     tryAgain: 'Try Again',
+    selfDisconnect: 'You offline!',
   },
 
   mainScreen: {

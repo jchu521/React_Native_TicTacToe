@@ -124,6 +124,11 @@ class GameOnlineNode extends React.Component {
           return;
         }
 
+        if(this.state.numSteps > 0 && online - 2 * 60 > this.state.online){
+          this._onOffline();
+          return;
+        }
+
         if(start)
         {
           let isYourTurn = false;
@@ -207,6 +212,18 @@ class GameOnlineNode extends React.Component {
       modelButtonTip: I18n.t('game.tryAgain'),
       roundStatus: 'over',
       online: 0,
+    });
+  };
+
+  _onOffline = (online) => {
+    this._stopHeartBeat();
+    this.setState({
+      isYourTurn: false,
+      modelStatus: 'gameOver',
+      modelMsg: I18n.t('game.selfDisconnect'),
+      modelButtonTip: I18n.t('game.tryAgain'),
+      roundStatus: 'over',
+      online: online,
     });
   };
 

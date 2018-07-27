@@ -17,6 +17,7 @@ export default {
     opponentDisconnect: '对方已离线！',
     serverReset: '服务器异常重置！',
     tryAgain: '重试',
+    selfDisconnect: '您已离线！',
   },
 
   mainScreen: {
