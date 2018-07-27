@@ -55,7 +55,7 @@ class GameOnlineNode extends React.Component {
       if(this._interval){
         this._stopHeartBeat();
       }
-      this._interval = setInterval(this._heartBeatInterval, HeartBeatTime);
+      setTimeout(this._startHeartBeat, 1000);
 
       this.viewWillBlur = this.props.navigation.addListener('didBlur',this._willBlur);
       this.viewDidFocus = this.props.navigation.addListener('didFocus',this._didFocus);
@@ -107,6 +107,9 @@ class GameOnlineNode extends React.Component {
   }
 
   _stepsHandler = (nextProps) =>{
+      if(!this._interval){
+        return;
+      }
       if(nextProps.steps.steps){
         const {steps, role, start, oppoDisc} = nextProps.steps;
         if(oppoDisc){
@@ -174,10 +177,11 @@ class GameOnlineNode extends React.Component {
       }
     };
   _onOpponentDisconnect = () => {
+    this._stopHeartBeat();
     this.setState({
       isYourTurn: false,
       modelStatus: 'gameOver',
-      modelMsg: 'Opponent disconnected!',
+      modelMsg: I18n.t('game.opponentDisconnect'),
       roundStatus: 'over',
     });
   };
@@ -336,7 +340,7 @@ class GameOnlineNode extends React.Component {
         backdropPressToClose={false}
         isOpen={true}
         >
-        <Text h2>{this.state.modelMsg}</Text>
+        <Text h4>{this.state.modelMsg}</Text>
         <TouchableOpacity
           style={[
             button.ModelBtn,
@@ -344,7 +348,7 @@ class GameOnlineNode extends React.Component {
           ]}
           onPress={() => this._newGame()}
         >
-          <Text h4 style={{color:'white'}}>{'New Game'}</Text>
+          <Text h4 style={{color:'white'}}>{I18n.t('game.newRound')}</Text>
         </TouchableOpacity>
       </Modal>
     );

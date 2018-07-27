@@ -14,6 +14,7 @@ export default {
     newRound: '再来一局？',
     selectOorX: ' 選擇 Ｏ 或 Ｘ',
     selectMode: '選擇難度',
+    opponentDisconnect: 'Opponent offline!',
   },
 
   mainScreen: {
