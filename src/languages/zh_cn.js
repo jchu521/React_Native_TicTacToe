@@ -15,6 +15,8 @@ export default {
     selectOorX: '选择 O 或 X',
     selectMode: '选择模式',
     opponentDisconnect: '对方已离线！',
+    serverReset: '服务器异常重置！',
+    tryAgain: '重试',
   },
 
   mainScreen: {

@@ -15,6 +15,8 @@ export default {
     selectOorX: 'Select Nought or Cross',
     selectMode: 'Select Mode',
     opponentDisconnect: 'Opponent offline!',
+    serverReset: 'Server reset!',
+    tryAgain: 'Try Again',
   },
 
   mainScreen: {

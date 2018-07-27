@@ -15,6 +15,8 @@ export default {
     selectOorX: ' 選擇 Ｏ 或 Ｘ',
     selectMode: '選擇難度',
     opponentDisconnect: 'Opponent offline!',
+    serverReset: 'Server reset!',
+    tryAgain: 'Try Again',
   },
 
   mainScreen: {
