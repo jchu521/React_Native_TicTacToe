@@ -28,7 +28,9 @@ class App extends Component<Props> {
   componentWillMount(){
     // codePush.notifyAppReady();
     // this._retrieveData();
+    // codePush.sync({ deploymentKey: "6_IWKiGVZiFWdqultdVZfZLyvFsvHkRmvYaQX" });
     codePush.sync();
+
   }
 
   _retrieveData = async () => {
@@ -62,7 +64,7 @@ class App extends Component<Props> {
   }
 
   render() {
-
+    
     return (
       <Provider store={store} >
           <AppStack />
