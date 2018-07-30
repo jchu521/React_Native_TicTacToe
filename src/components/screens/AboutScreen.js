@@ -20,7 +20,6 @@ export default class DevelopersScreen extends Component {
         style={views.container}
         contentContainerStyle={styles.content}
       >
-        <View style={{flex:1}} />
         <View style={[buttons.buttonGroup, {flex: 5}]}>
           <View style={[views.container, views.buttonGroupView]}>
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('about.about')}</Text>

@@ -26,7 +26,7 @@ class Disclaimer extends Component {
             <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('disclaimer.title')}</Text>
           </View>
           <View style={[views.container,{flex:3}]} >
-            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}} >{I18n.t('disclaimer.disclaimer1')}</Text>
+            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}} >{I18n.t('disclaimer.disclaimer')}</Text>
           </View>
         </View>
       </ImageBackground>
