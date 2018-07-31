@@ -20,18 +20,21 @@ export default class DevelopersScreen extends Component {
         style={views.container}
         contentContainerStyle={styles.content}
       >
-        <View style={[buttons.buttonGroup, {flex: 5}]}>
-          <View style={[views.container, views.buttonGroupView]}>
-            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('about.about')}</Text>
+        <View style={{flex:1}} />
+          <View style={[buttons.buttonGroup, {flex: 5}]}>
+            <View style={[views.container, views.buttonGroupView, { flex:1}]}>
+              <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('about.about')}</Text>
+            </View>
+            <View style={{flex:5}}>
+            <ScrollView  contentContainerStyle={[views.container, {flex:5}]}>
+              <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}} >{I18n.t('about.description')}</Text>
+              <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName1')}</Text>
+              <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName2')}</Text>
+              <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName3')}</Text>
+              <Text style={{ textAlign: 'center', width:'90%', fontSize: 20}}>{I18n.t('about.moreInfo')}</Text>
+            </ScrollView>
+            </View>
           </View>
-          <View style={[views.container,{flex:5}]} >
-            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}} >{I18n.t('about.description')}</Text>
-            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName1')}</Text>
-            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName2')}</Text>
-            <Text style={{ textAlign: 'center', width:'90%', fontSize: 22}}>{I18n.t('about.developerName3')}</Text>
-            <Text style={{ textAlign: 'center', width:'90%', fontSize: 20}}>{I18n.t('about.moreInfo')}</Text>
-          </View>
-        </View>
       </ImageBackground>
     );
   }
