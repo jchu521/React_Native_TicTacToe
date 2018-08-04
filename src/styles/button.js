@@ -5,7 +5,7 @@ const button = StyleSheet.create({
     //Default btn
     DefaultBtn:{
       width: '90%',
-      height: 70,
+      height: 50,
       borderRadius: 20,
       alignItems: 'center',
       justifyContent: 'center',

@@ -45,14 +45,18 @@ export default createStackNavigator({
   About: {
     screen: AboutScreen,
     navigationOptions: {
-     header: null,
+     title: 'About',
+    //  headerStyle: {
+    //   backgroundColor: '#071F1A'
+    // },
+    // headerTintColor: navigationOptions.headerStyle.backgroundColor,
     }
   },
 
   Disclaimer:{
     screen: DisclaimerScreen,
     navigationOptions: {
-     header: null,
+      title: 'Disclaimer'
     }
   },
 
