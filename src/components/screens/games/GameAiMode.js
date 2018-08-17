@@ -39,6 +39,7 @@ class GameAiMode extends React.Component {
     }
 
     _selectGameMode = (value) => {
+      this.steps = [];
       switch (value) {
         case 'EASY':
           this.setState({gameLevel: 5, squares: Array(9).fill(null)});
@@ -53,6 +54,7 @@ class GameAiMode extends React.Component {
     }
 
     _selectNoughtOrCross = (value) => {
+      this.steps = [];
       this.setState({
         xIsNext: value,
         mark: value,
