@@ -76,5 +76,12 @@ export default {
   disclaimer: {
     title: 'Disclaimer',
     disclaimer: 'The data in this app is anonymous and only will be used for research. When playing with Tic Tac Toe AI app you have agrumed to the above.'
+  },
+
+  user: {
+    win: 'Win',
+    loss: 'Loss',
+    draw: 'Draw',
+    winRate: 'Win Rate'
   }
 };

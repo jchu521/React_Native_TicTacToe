@@ -5,6 +5,7 @@ import { View, ImageBackground, TouchableOpacity } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import views from '../../styles/views';
+import fonts from '../../styles/fonts';
 import { Colors } from '../../styles/colors'
 import buttons from '../../styles/button';
 
@@ -27,12 +28,12 @@ export default class OnlineScreen extends Component {
     return(
       <ImageBackground source={require('../../images/default.jpg')} blurRadius={3} style={views.container}>
         <View style={views.container}>
-          <Text h1>Tic Tac Toe</Text>
+          <Text h1 style={fonts.customFont2}>Tic Tac Toe</Text>
 
         </View>
         <View style={[buttons.buttonGroup]}>
           <View style={[views.container, views.buttonGroupView, {marginBottom: 0}]}>
-            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('info.info')}</Text>
+            <Text h2 style={[fonts.customFont2, {color:'#E8E2B3'}]}>{I18n.t('info.info')}</Text>
           </View>
           <View style={[views.container,{flex:4}]}>
             <TouchableOpacity
@@ -42,17 +43,8 @@ export default class OnlineScreen extends Component {
               ]}
               onPress={() => navigate('About')}
             >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.about')}</Text>
+              <Text h3 style={[fonts.customFont3, {color:'white'}]}>{I18n.t('info.about')}</Text>
             </TouchableOpacity>
-            {/*}<TouchableOpacity
-              style={[
-                buttons.DefaultBtn,
-                {backgroundColor: Colors.lightPurple}
-              ]}
-              onPress={() => navigate('Version')}
-            >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.updateSettings')}</Text>
-            </TouchableOpacity>*/}
             <TouchableOpacity
               style={[
                 buttons.DefaultBtn,
@@ -60,7 +52,7 @@ export default class OnlineScreen extends Component {
               ]}
               onPress={() => navigate('Disclaimer')}
             >
-              <Text h3 style={{color:'white'}}>{I18n.t('info.disclaimer')}</Text>
+              <Text h3 style={[fonts.customFont3, {color:'white'}]}>{I18n.t('info.disclaimer')}</Text>
             </TouchableOpacity>
           </View>
           {this.state.appdata?this._renderVersion():null}

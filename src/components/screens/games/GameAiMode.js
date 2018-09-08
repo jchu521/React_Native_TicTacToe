@@ -80,6 +80,7 @@ class GameAiMode extends React.Component {
           this._gameOver('=');
           break;
       }
+      DeviceEventEmitter.emit('refeshWinRate','');
     }
 
     _gameOver = (winner) => {

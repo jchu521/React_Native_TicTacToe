@@ -5,7 +5,8 @@ import AboutScreen from '../screens/AboutScreen';
 import DisclaimerScreen from '../screens/Disclaimer';
 import AIModeScreen from '../screens/games/GameAiMode';
 import OnlineGameScreen from '../screens/games/GameOnlineNode';
-import {bottomTab1, bottomTab2, bottomTab3} from '../navigations/bottomTabNavigator';
+import UserScreen from '../screens/UserScreen';
+import {bottomTab1, bottomTab2, bottomTab3,bottomTab4} from '../navigations/bottomTabNavigator';
 import React from 'react';
 
 
@@ -60,6 +61,13 @@ export default createStackNavigator({
     }
   },
 
+  User: {
+    screen: bottomTab4,
+    navigationOptions: {
+     header: null,
+    }
+  }
+
 },{
-    // initialRouteName: 'About'
+    // initialRouteName: 'User'
 });

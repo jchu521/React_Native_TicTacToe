@@ -74,5 +74,12 @@ export default {
   disclaimer: {
     title: '免責聲明',
     disclaimer: `用戶在Tic Tac Toe AI App 中所對戰的紀錄將會以不記名的方式儲存,數據將會被拿到學術研究. 你已同意以上聲明`,
+  },
+
+  user: {
+    win: '平手',
+    loss: '輸',
+    draw: '贏',
+    winRate: '勝率'
   }
 };
