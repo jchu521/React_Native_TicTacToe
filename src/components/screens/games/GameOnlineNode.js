@@ -12,6 +12,7 @@ import fonts from '../../../styles/fonts';
 import I18n from '../../../languages/i18n';
 import {CheckWinner, _displayMessage} from '../../utils/checkWinner';
 import DeviceInfo from 'react-native-device-info';
+import playSoundBundle  from '../../utils/sound';
 
 import { bindActionCreators } from "redux";
 import * as actions from '../../actions/index';
@@ -318,6 +319,7 @@ class GameOnlineNode extends React.Component {
 
   _onInputButtonPressed = (input) => {
       //alert(input);
+      playSoundBundle('buttonSound.wav');
       if(!this.state.isYourTurn || this.state.roundStatus === 'over'){
         return;
       }

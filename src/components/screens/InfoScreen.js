@@ -8,6 +8,7 @@ import views from '../../styles/views';
 import fonts from '../../styles/fonts';
 import { Colors } from '../../styles/colors'
 import buttons from '../../styles/button';
+import playSoundBundle  from '../utils/sound';
 
 import codePush from 'react-native-code-push';
 
@@ -22,6 +23,14 @@ export default class OnlineScreen extends Component {
       });
     });
   }
+
+  onClickButton = (screen) => {
+    const { navigate } = this.props.navigation;
+
+    navigate(screen);
+    playSoundBundle('clickOn.wav');
+  }
+
   render() {
     const { navigate } = this.props.navigation
 
@@ -41,7 +50,7 @@ export default class OnlineScreen extends Component {
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
               ]}
-              onPress={() => navigate('About')}
+              onPress={() => this.onClickButton('About')}
             >
               <Text h3 style={[fonts.customFont3, {color:'white'}]}>{I18n.t('info.about')}</Text>
             </TouchableOpacity>
@@ -50,7 +59,7 @@ export default class OnlineScreen extends Component {
                 buttons.DefaultBtn,
                 {backgroundColor: Colors.lightPurple}
               ]}
-              onPress={() => navigate('Disclaimer')}
+              onPress={() => this.onClickButton('Disclaimer')}
             >
               <Text h3 style={[fonts.customFont3, {color:'white'}]}>{I18n.t('info.disclaimer')}</Text>
             </TouchableOpacity>

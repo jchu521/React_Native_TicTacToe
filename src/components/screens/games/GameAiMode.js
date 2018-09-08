@@ -10,6 +10,9 @@ import InputButton from '../../utils/InputButton';
 import GameStyle from '../../../styles/GameStyle';
 import button from '../../../styles/button';
 import text from '../../../styles/text';
+import fonts from '../../../styles/fonts';
+import playSoundBundle  from '../../utils/sound';
+
 import { Colors } from '../../../styles/colors';
 import DeviceInfo from 'react-native-device-info';
 
@@ -39,6 +42,7 @@ class GameAiMode extends React.Component {
     }
 
     _selectGameMode = (value) => {
+      playSoundBundle('toggleSound.wav');
       this.steps = [];
       switch (value) {
         case 'EASY':
@@ -54,6 +58,7 @@ class GameAiMode extends React.Component {
     }
 
     _selectNoughtOrCross = (value) => {
+      playSoundBundle('toggleSound.wav');
       this.steps = [];
       this.setState({
         xIsNext: value,
@@ -169,7 +174,7 @@ class GameAiMode extends React.Component {
           isOpen={true}
           swipeToClose={false}
           >
-          <Text h2>{message}</Text>
+          <Text h2 style={fonts.customFont3}>{message}</Text>
           <TouchableOpacity  style={{marginTop:20}} onPress={() => this._onReset()}>
             <Image source={require('../../../images/ResetButton.png')}/>
           </TouchableOpacity>
@@ -340,7 +345,7 @@ class GameAiMode extends React.Component {
 
     _onInputButtonPressed(input) {
         const squares = this.state.squares;
-
+        playSoundBundle('buttonSound.wav');
         if(this._calculateWinner(squares) || squares[input] ){
             return;
         }
@@ -357,7 +362,6 @@ class GameAiMode extends React.Component {
         if(this._calculateWinner(squares)){
           return ;
         }
-
     }
 
 }

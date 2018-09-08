@@ -23,6 +23,7 @@
     "react-native-modalbox": "^1.6.0",
     "react-native-percentage-circle": "^1.0.7",
     "react-native-progress": "^3.5.0",
+    "react-native-sound": "^0.10.9",
     "react-native-switch-selector": "^1.1.8",
     "react-native-textinput-effects": "^0.4.2",
     "react-native-vector-icons": "^4.6.0",
