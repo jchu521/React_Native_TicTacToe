@@ -319,7 +319,7 @@ class GameOnlineNode extends React.Component {
 
   _onInputButtonPressed = (input) => {
       //alert(input);
-      playSoundBundle('buttonSound.wav');
+      playSoundBundle('button_sound.wav');
       if(!this.state.isYourTurn || this.state.roundStatus === 'over'){
         return;
       }

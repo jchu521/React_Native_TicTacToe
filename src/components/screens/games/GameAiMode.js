@@ -42,7 +42,7 @@ class GameAiMode extends React.Component {
     }
 
     _selectGameMode = (value) => {
-      playSoundBundle('toggleSound.wav');
+      playSoundBundle('toggle_sound.wav');
       this.steps = [];
       switch (value) {
         case 'EASY':
@@ -58,7 +58,7 @@ class GameAiMode extends React.Component {
     }
 
     _selectNoughtOrCross = (value) => {
-      playSoundBundle('toggleSound.wav');
+      playSoundBundle('toggle_sound.wav');
       this.steps = [];
       this.setState({
         xIsNext: value,
@@ -345,7 +345,7 @@ class GameAiMode extends React.Component {
 
     _onInputButtonPressed(input) {
         const squares = this.state.squares;
-        playSoundBundle('buttonSound.wav');
+        playSoundBundle('button_sound.wav');
         if(this._calculateWinner(squares) || squares[input] ){
             return;
         }

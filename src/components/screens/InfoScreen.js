@@ -28,7 +28,7 @@ export default class OnlineScreen extends Component {
     const { navigate } = this.props.navigation;
 
     navigate(screen);
-    playSoundBundle('clickOn.wav');
+    playSoundBundle('click_on.wav');
   }
 
   render() {
