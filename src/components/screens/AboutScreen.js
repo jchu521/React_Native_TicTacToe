@@ -27,7 +27,7 @@ export default class DevelopersScreen extends Component {
             <Text h2 style={[fonts.customFont2, {color:'#E8E2B3'}]}>{I18n.t('about.about')}</Text>
           </View>
           <View style={{flex:5, width: '80%'}}>
-            <ScrollView  contentContainerStyle={{alignItems:'center', textAlign:'center'}} >
+            <ScrollView  contentContainerStyle={{alignItems:'center'}} >
               <Text style={{ textAlign: 'center', width:'90%', fontSize: 20}} >{I18n.t('about.description')}</Text>
               <Text style={{ textAlign: 'center', width:'90%', fontSize: 20}}>{I18n.t('about.developerName1')}</Text>
               <Text style={{ textAlign: 'center', width:'90%', fontSize: 20}}>{I18n.t('about.developerName2')}</Text>

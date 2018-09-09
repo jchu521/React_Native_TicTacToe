@@ -37,7 +37,7 @@ class DisplayWinRate extends Component {
         const { getUserMatchResult } = this.props;
         const uuid = DeviceInfo.getUniqueID();
 
-        console.log(uuid)
+        // console.log(uuid)
         getUserMatchResult(uuid);
     };
 
@@ -57,7 +57,7 @@ class DisplayWinRate extends Component {
 
     render() {
         const { winRate, win, loss, draw } = this.state;
-        console.log(this)
+
         return (
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
                 <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
