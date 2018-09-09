@@ -29,7 +29,7 @@ class App extends Component<Props> {
     // codePush.notifyAppReady();
     // this._retrieveData();
     // codePush.sync({ deploymentKey: "6_IWKiGVZiFWdqultdVZfZLyvFsvHkRmvYaQX" });
-    codePush.sync();
+    // codePush.sync();
 
   }
 

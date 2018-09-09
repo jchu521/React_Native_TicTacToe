@@ -35,7 +35,7 @@ class MainScreen extends Component {
     const { navigate } = this.props.navigation;
 
     navigate(screen);
-    playSoundBundle('click_on.wav');
+   playSoundBundle('click_on.wav');
   }
 
 

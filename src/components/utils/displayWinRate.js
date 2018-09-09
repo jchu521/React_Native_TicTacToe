@@ -47,8 +47,11 @@ class DisplayWinRate extends Component {
 
             if(win !==0 && loss !== 0 && draw !== 0){
                 winRate = ((parseInt(win)+0.5*parseInt(draw))*100/(parseInt(win)+parseInt(loss)+parseInt(draw))).toFixed(1);
+            }else{
+              winRate =0;
             }
-            this.setState({winRate, win,loss,draw});
+
+            this.setState({winRate: isNaN(winRate) ? 0 : winRate, win,loss,draw});
         }
     }
 
@@ -58,7 +61,7 @@ class DisplayWinRate extends Component {
         return (
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
                 <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-                  <View style={{flexDirection:'row', flex:1, alignItems:'center', justifyContent:'space-around', width:'80%',marginBottom:'20%'}}>
+                  <View style={{flexDirection:'row', flex:1, alignItems:'center', justifyContent:'space-around', width:'80%',marginBottom:'30%'}}>
                     <View style={{flex:1, justifyContent:'flex-start', width:'100%'}}>
                         <Text h4 style={[fonts.customFont2,{textAlign:'center'}]}>{I18n.t('user.win')}</Text>
                         <Text h3 style={[fonts.customFont3,{textAlign:'center', color: 'blue'}]}>{win}</Text>
@@ -77,10 +80,10 @@ class DisplayWinRate extends Component {
                           children={
                           <View>
                               <Text style={[fonts.customFont2,{textAlign:'center'}]} h4>{I18n.t('user.winRate')}</Text>
-                              <Text style={[fonts.customFont3,{textAlign:'center'}]} h3>{winRate}%</Text>
+                              <Text style={[fonts.customFont3,{textAlign:'center'}]} h3>{winRate }%</Text>
                           </View>
                           }
-                          radius={90} percent={winRate} textStyle={{fontSize: 24}} color={"#3498db"} />
+                          radius={80} percent={winRate} textStyle={{fontSize: 24}} color={"#3498db"} />
                   </View>
                 </View>
             </View>

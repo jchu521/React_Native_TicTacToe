@@ -7,7 +7,6 @@ export default playSoundBundle = (fs) => {
       console.log('error', e);
     } else {
       s.setSpeed(1);
-      console.log('duration', s.getDuration());
       s.play(() => s.release()); // Release when it's done so we're not using up resources
     }
   });
