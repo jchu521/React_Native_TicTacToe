@@ -7,13 +7,14 @@ import GameStyle from '../../../styles/GameStyle'
 import button from '../../../styles/button';
 import text from '../../../styles/text';
 import I18n from '../../../languages/i18n';
-import {CheckWinner, _displayMessage} from '../../utils/checkWinner';
+import {CheckWinner} from '../../utils/checkWinner';
 import DeviceInfo from 'react-native-device-info';
 
 import { bindActionCreators } from "redux";
 import * as actions from '../../actions/index';
 import { connect } from 'react-redux';
 import { AsyncStorage, DeviceEventEmitter } from 'react-native';
+import fonts from '../../styles/fonts';
 
 const inputButtons = [
     [0, 1, 2],
@@ -208,6 +209,7 @@ class GameOnline extends React.Component {
     let status;
     if(winner){
         status = winner === this.state.mark? I18n.t('game.success') : I18n.t('game.failed');
+        // DeviceEventEmitter.emit('refeshWinRate','');
     }
     else if(this.state.numSteps >= 9){
       status = I18n.t('game.draw');
@@ -222,7 +224,9 @@ class GameOnline extends React.Component {
     return(
       <ImageBackground source={require('../../../images/default.jpg')} style={GameStyle.rootContainer}>
         <View style={{flex: 1, justifyContent:'center', alignItems:'center'}}>
-          <Text h2 >{status}</Text>
+          <Text h2 style={fonts.customFont}>{status}</Text>
+          <Text h2 style={fonts.customFont}>asdasdasd</Text>
+
         </View>
         <View style={{flex: 3, justifyContent: 'center'}} >
           <View style={GameStyle.gameBoard}>{this._renderInputButtons()}</View>
@@ -277,8 +281,6 @@ class GameOnline extends React.Component {
   };
 
 }
-
-
 
 const mapStateToProps = (state) => ({
   ...state

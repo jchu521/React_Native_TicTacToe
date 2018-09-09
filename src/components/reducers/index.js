@@ -3,12 +3,15 @@ import gameReducer from './gameReducer'
 import stepsReducer from './stepsReducer'
 import miscReducer from './miscReducer'
 import codePushReducer from './codePushReducer'
+import userReducer from './userReducer'
+
 
 const appReducer = combineReducers({
     game: gameReducer,
     steps: stepsReducer,
     misc: miscReducer,
     appInfo: codePushReducer,
+    user: userReducer
 })
 
 //inital

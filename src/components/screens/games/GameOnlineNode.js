@@ -8,9 +8,11 @@ import { Colors } from '../../../styles/colors';
 
 import button from '../../../styles/button';
 import text from '../../../styles/text';
+import fonts from '../../../styles/fonts';
 import I18n from '../../../languages/i18n';
 import {CheckWinner, _displayMessage} from '../../utils/checkWinner';
 import DeviceInfo from 'react-native-device-info';
+import playSoundBundle  from '../../utils/sound';
 
 import { bindActionCreators } from "redux";
 import * as actions from '../../actions/index';
@@ -244,6 +246,7 @@ class GameOnlineNode extends React.Component {
       });
       this._stopHeartBeat();
       this._setResult(winner,lastStep);
+      DeviceEventEmitter.emit('refeshWinRate','');
     }
     else {
       this.setState({
@@ -316,6 +319,7 @@ class GameOnlineNode extends React.Component {
 
   _onInputButtonPressed = (input) => {
       //alert(input);
+      playSoundBundle('button_sound.wav');
       if(!this.state.isYourTurn || this.state.roundStatus === 'over'){
         return;
       }
@@ -364,7 +368,7 @@ class GameOnlineNode extends React.Component {
     return(
       <ImageBackground source={require('../../../images/default.jpg')} blurRadius={3} style={GameStyle.rootContainer}>
         <View style={{flex: 1, justifyContent:'center', alignItems:'center'}}>
-          <Text h2 >{status}</Text>
+          <Text h2 style={fonts.customFont}>{status}</Text>
         </View>
         <View style={{flex: 3, justifyContent: 'center'}} >
           <View style={GameStyle.gameBoard}>{this._renderInputButtons()}</View>

@@ -157,3 +157,23 @@ export const postAIResult = (data) => (dispatch) => {
         });
     }).catch(C.error);
 }
+
+//save local user image
+export const userPhoto = (data) => (dispatch) => {
+  return dispatch({ type: C.SAVE_USER_PHOTO, data });
+}
+
+// GET user match result https://tictactoe.breakself.tech/rounds?statistics=1&uuid=df2f9019bdb35d38
+export const getUserMatchResult = (uuid) => (dispatch) => {
+  let url = 'https://tictactoe.breakself.tech/rounds?statistics=1&uuid=' + encodeURIComponent(uuid);
+
+  fetch(url, {
+      headers: C.headers,
+      credentials: C.credentials
+  }).then(C.parseResponse).then(data => {
+        dispatch({
+            type: C.GET_USER_MATCH_RESULT,
+            result: data[0]
+        });
+    }).catch(C.error)
+}

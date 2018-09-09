@@ -8,6 +8,9 @@ const constants = {
     POST_AI_RESULT: 'POST_AI_RESULT',
     NEW_GAME: 'NEW_GAME',
 
+    SAVE_USER_PHOTO: 'SAVE_USER_PHOTO',
+    GET_USER_MATCH_RESULT: 'GET_USER_MATCH_RESULT',
+
     GET_UPDATE_METADATA: 'GET_UPDATE_METADATA',
 
     stepsURL: 'https://tictactoe.breakself.tech/steps',

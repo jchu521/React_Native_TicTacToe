@@ -7,6 +7,7 @@ import I18n from '../../languages/i18n';
 
 import buttons from '../../styles/button';
 import views from '../../styles/views';
+import fonts from '../../styles/fonts';
 
 class Disclaimer extends Component {
   render() {
@@ -23,7 +24,7 @@ class Disclaimer extends Component {
         <View style={{flex:1}} />
         <View style={[buttons.buttonGroup, {flex: 5}]}>
           <View style={[views.container, views.buttonGroupView,{flex:1}]}>
-            <Text h2 style={{color:'#E8E2B3'}}>{I18n.t('disclaimer.title')}</Text>
+            <Text h2 style={[fonts.customFont2, {color:'#E8E2B3'}]}>{I18n.t('disclaimer.title')}</Text>
           </View>
           <View style={[views.container,{flex:3}]} >
             <Text style={{ textAlign: 'center', width:'90%', fontSize: 20}} >{I18n.t('disclaimer.disclaimer')}</Text>
