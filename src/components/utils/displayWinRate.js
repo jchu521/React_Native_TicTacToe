@@ -24,13 +24,13 @@ class DisplayWinRate extends Component {
 
     componentWillMount(){
         this._bootstrapAsync();
-        this.listener = DeviceEventEmitter.addListener('refeshWinRate',()=>{
-            this._bootstrapAsync();
-        })
+        // this.listener = DeviceEventEmitter.addListener('refeshWinRate',()=>{
+        //     this._bootstrapAsync();
+        // })
     }
 
     componentWillUnmount(){
-        this.listener.remove();
+        // this.listener.remove();
     }
 
     _bootstrapAsync = () => {

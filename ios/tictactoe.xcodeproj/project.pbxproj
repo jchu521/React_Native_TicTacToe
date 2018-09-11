@@ -45,9 +45,7 @@
 		5DDF58CFC6F34163BFC78236 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8B2D4896809424E9EB8FAE7 /* MaterialCommunityIcons.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6B2D53C62141FE4000C72F37 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B2D53982141FE4000C72F37 /* GamjaFlower-Regular.ttf */; };
-		6B6F09D02143B6B7001510D7 /* click_on.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6B6F09CD2143B6B6001510D7 /* click_on.wav */; };
-		6B6F09D12143B6B7001510D7 /* button_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6B6F09CE2143B6B6001510D7 /* button_sound.wav */; };
-		6B6F09D22143B6B7001510D7 /* toggle_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6B6F09CF2143B6B7001510D7 /* toggle_sound.wav */; };
+		6B857DDA21486515009F1ED6 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B857DD9214864E9009F1ED6 /* libCodePush.a */; };
 		6BC620DA20E722F500452168 /* Dimbo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BC620B120E722F500452168 /* Dimbo.ttf */; };
 		6BC6211220E724CB00452168 /* PatuaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BC620E920E724CB00452168 /* PatuaOne-Regular.ttf */; };
 		6FB7F985EA3142B7ADBCF349 /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D6B98D6D6B430DA348A648 /* libRNI18n-tvOS.a */; };
@@ -214,20 +212,6 @@
 			remoteGlobalIDString = 9936F32F1F5F2E5B0010BF04;
 			remoteInfo = "privatedata-tvOS";
 		};
-		3CB04EB320F6DD000084F49D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5E9EC04532FE4971942CA5C3 /* CodePush.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = CodePush;
-		};
-		3CB04EB520F6DD000084F49D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5E9EC04532FE4971942CA5C3 /* CodePush.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F886647B1F4ADB500036D01B;
-			remoteInfo = "CodePush-tvOS";
-		};
 		3CB04EDE20F6DD000084F49D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D78A4A4067694E7EB37D952C /* RNDeviceInfo.xcodeproj */;
@@ -375,6 +359,20 @@
 			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
 			remoteInfo = RNSound;
 		};
+		6B857DD6214864E9009F1ED6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B857DD1214864E9009F1ED6 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = CodePush;
+		};
+		6B857DD8214864E9009F1ED6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B857DD1214864E9009F1ED6 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F886647B1F4ADB500036D01B;
+			remoteInfo = "CodePush-tvOS";
+		};
 		6B86D2212141F6610003ED39 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B4EBD0E5B3C44FBDA23DA360 /* RNImagePicker.xcodeproj */;
@@ -435,12 +433,10 @@
 		59DA424B31B54F6AB57ED966 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		5C5A975FE2D649BEA89219A0 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		5E9EC04532FE4971942CA5C3 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		66F10E53404048929B322AB9 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		6B2D53982141FE4000C72F37 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GamjaFlower-Regular.ttf"; path = "../assest/fonts/GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
-		6B6F09CD2143B6B6001510D7 /* click_on.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click_on.wav; path = ../android/app/src/main/res/raw/click_on.wav; sourceTree = "<group>"; };
-		6B6F09CE2143B6B6001510D7 /* button_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = button_sound.wav; path = ../android/app/src/main/res/raw/button_sound.wav; sourceTree = "<group>"; };
-		6B6F09CF2143B6B7001510D7 /* toggle_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = toggle_sound.wav; path = ../android/app/src/main/res/raw/toggle_sound.wav; sourceTree = "<group>"; };
+		6B857D6321485EC6009F1ED6 /* CodePush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CodePush.h; path = "../node_modules/react-native-code-push/ios/CodePush/CodePush.h"; sourceTree = "<group>"; };
+		6B857DD1214864E9009F1ED6 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		6BC620B120E722F500452168 /* Dimbo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dimbo.ttf; path = ../assest/fonts/Dimbo.ttf; sourceTree = "<group>"; };
 		6BC620E920E724CB00452168 /* PatuaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatuaOne-Regular.ttf"; path = "../assest/fonts/PatuaOne-Regular.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -488,6 +484,7 @@
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				6B857DDA21486515009F1ED6 /* libCodePush.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
@@ -670,6 +667,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B857D6321485EC6009F1ED6 /* CodePush.h */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				4D2C55C8C3DD45EC8156565B /* libz.tbd */,
 			);
@@ -681,15 +679,6 @@
 			children = (
 				3CB04EDF20F6DD000084F49D /* libRNDeviceInfo.a */,
 				3CB04EE120F6DD000084F49D /* libRNDeviceInfo-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3CB04EAF20F6DD000084F49D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3CB04EB420F6DD000084F49D /* libCodePush.a */,
-				3CB04EB620F6DD000084F49D /* libCodePush.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -743,6 +732,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6B857DD2214864E9009F1ED6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B857DD7214864E9009F1ED6 /* libCodePush.a */,
+				6B857DD9214864E9009F1ED6 /* libCodePush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6B86D21E2141F6610003ED39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,6 +761,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6B857DD1214864E9009F1ED6 /* CodePush.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -778,7 +777,6 @@
 				F4FC37CAFBC542A0BB1F8D9F /* RNVectorIcons.xcodeproj */,
 				8B30F174118A45E7B83F8BA6 /* RNI18n.xcodeproj */,
 				D78A4A4067694E7EB37D952C /* RNDeviceInfo.xcodeproj */,
-				5E9EC04532FE4971942CA5C3 /* CodePush.xcodeproj */,
 				B4EBD0E5B3C44FBDA23DA360 /* RNImagePicker.xcodeproj */,
 				204D3481742B474596759BB8 /* RNSound.xcodeproj */,
 			);
@@ -797,9 +795,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				6B6F09CE2143B6B6001510D7 /* button_sound.wav */,
-				6B6F09CD2143B6B6001510D7 /* click_on.wav */,
-				6B6F09CF2143B6B7001510D7 /* toggle_sound.wav */,
 				13B07FAE1A68108700A75B9A /* tictactoe */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* tictactoeTests */,
@@ -949,8 +944,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3CB04EAF20F6DD000084F49D /* Products */;
-					ProjectRef = 5E9EC04532FE4971942CA5C3 /* CodePush.xcodeproj */;
+					ProductGroup = 6B857DD2214864E9009F1ED6 /* Products */;
+					ProjectRef = 6B857DD1214864E9009F1ED6 /* CodePush.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -1165,20 +1160,6 @@
 			remoteRef = 2DF0FFEC2056DD460020B375 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3CB04EB420F6DD000084F49D /* libCodePush.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCodePush.a;
-			remoteRef = 3CB04EB320F6DD000084F49D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3CB04EB620F6DD000084F49D /* libCodePush.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCodePush.a;
-			remoteRef = 3CB04EB520F6DD000084F49D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		3CB04EDF20F6DD000084F49D /* libRNDeviceInfo.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1326,6 +1307,20 @@
 			remoteRef = 6B6F09C321439BE3001510D7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		6B857DD7214864E9009F1ED6 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 6B857DD6214864E9009F1ED6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B857DD9214864E9009F1ED6 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 6B857DD8214864E9009F1ED6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6B86D2222141F6610003ED39 /* libRNImagePicker.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1369,7 +1364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				6B6F09D22143B6B7001510D7 /* toggle_sound.wav in Resources */,
 				6B2D53C62141FE4000C72F37 /* GamjaFlower-Regular.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				57A08C6686BF4EBDB8E560A9 /* Entypo.ttf in Resources */,
@@ -1377,11 +1371,9 @@
 				6BC620DA20E722F500452168 /* Dimbo.ttf in Resources */,
 				6BC6211220E724CB00452168 /* PatuaOne-Regular.ttf in Resources */,
 				EB79BC89103D45DE8BA0C288 /* Feather.ttf in Resources */,
-				6B6F09D12143B6B7001510D7 /* button_sound.wav in Resources */,
 				D211B8894F9E480382A06639 /* FontAwesome.ttf in Resources */,
 				37E8F42B82794E4CA7AFC741 /* Foundation.ttf in Resources */,
 				1E15F09503F74BB9A7607516 /* Ionicons.ttf in Resources */,
-				6B6F09D02143B6B7001510D7 /* click_on.wav in Resources */,
 				5DDF58CFC6F34163BFC78236 /* MaterialCommunityIcons.ttf in Resources */,
 				CA467E3D0E1840758CC51AB2 /* MaterialIcons.ttf in Resources */,
 				966E950E79664224B4E84F9D /* Octicons.ttf in Resources */,
@@ -1582,6 +1574,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODEPUSH_KEY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1597,6 +1590,7 @@
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = tictactoe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1607,6 +1601,7 @@
 				PRODUCT_NAME = tictactoe;
 				PROVISIONING_PROFILE = "14545cca-1f6e-4b86-b931-7d7dd0fb19a9";
 				PROVISIONING_PROFILE_SPECIFIER = TicTacToeAI;
+				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1630,6 +1625,7 @@
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = tictactoe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1642,6 +1638,7 @@
 				PRODUCT_NAME = tictactoe;
 				PROVISIONING_PROFILE = "14545cca-1f6e-4b86-b931-7d7dd0fb19a9";
 				PROVISIONING_PROFILE_SPECIFIER = TicTacToeAI;
+				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1883,6 +1880,7 @@
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = tictactoe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1895,6 +1893,7 @@
 				PRODUCT_NAME = tictactoe;
 				PROVISIONING_PROFILE = "14545cca-1f6e-4b86-b931-7d7dd0fb19a9";
 				PROVISIONING_PROFILE_SPECIFIER = TicTacToeAI;
+				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Staging;

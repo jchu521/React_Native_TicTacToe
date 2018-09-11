@@ -158,7 +158,7 @@ export const postAIResult = (data) => (dispatch) => {
     }).catch(C.error);
 }
 
-//save local user image
+// save local user image
 export const userPhoto = (data) => (dispatch) => {
   return dispatch({ type: C.SAVE_USER_PHOTO, data });
 }
