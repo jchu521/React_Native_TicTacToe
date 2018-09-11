@@ -12,6 +12,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.zmxv.RNSound.RNSoundPackage;
+import com.imagepicker.ImagePickerPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
             new CodePush(BuildConfig.CODEPUSH_KEY, getApplicationContext(), BuildConfig.DEBUG),
             new RNI18nPackage(),
             new VectorIconsPackage(),
+            new ImagePickerPackage(),
             new RNSoundPackage()
       );
     }

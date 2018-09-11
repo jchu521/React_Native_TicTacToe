@@ -11,6 +11,8 @@ import GameStyle from '../../../styles/GameStyle';
 import button from '../../../styles/button';
 import text from '../../../styles/text';
 import fonts from '../../../styles/fonts';
+import buttons from '../../../styles/button';
+
 import playSoundBundle  from '../../utils/sound';
 
 import { Colors } from '../../../styles/colors';
@@ -85,7 +87,7 @@ class GameAiMode extends React.Component {
           this._gameOver('=');
           break;
       }
-      DeviceEventEmitter.emit('refeshWinRate','');
+      // DeviceEventEmitter.emit('refeshWinRate','');
     }
 
     _gameOver = (winner) => {
@@ -107,7 +109,6 @@ class GameAiMode extends React.Component {
       this._postResult(data);
     };
     _postResult = (data) => {
-      console.log(data);
       const { postAIResult } = this.props;
       postAIResult(data);
     };
@@ -151,6 +152,17 @@ class GameAiMode extends React.Component {
               <View style={GameStyle.gameBoard}>{this._renderInputButtons()}</View>
             </View>
             {isOpen?this._renderModal():null}
+            {/*
+            <TouchableOpacity
+              style={[
+                buttons.DefaultBtn,
+                {backgroundColor: Colors.lightPurple, height: 50}
+              ]}
+              onPress={() => this._onReset()}
+            >
+                <Text h2 style={[fonts.customFont3,{color:'white'}]}>Play again</Text>
+            </TouchableOpacity>
+            */}
           </ImageBackground>
         );
     }
