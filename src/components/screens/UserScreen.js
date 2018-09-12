@@ -63,23 +63,23 @@ class UserScreen extends Component {
       });
     }
 
-    componentWillMount(){
+    componentDidMount(){
       this._bootstrapAsync();
     }
 
-    _bootstrapAsync(){
-      const { photo } = this.props.user;
-
-      if(photo != null || photo != undefined){
+    _bootstrapAsync = async() =>{
+      // const { photo } = this.props.user;
+      var AvatarImg = await AsyncStorage.getItem('AvatarImg');
+      if(AvatarImg != null || AvatarImg != undefined){
         this.setState({
-          avatarSource: {uri: this.props.user.photo},
+          avatarSource: {uri: AvatarImg},
           isReady:true
         })
       }
     };
     render(){
         const { avatarSource,isReady } = this.state
-        console.log(this)
+
         return(
           <ImageBackground source={require('../../images/default.jpg')} blurRadius={3} style={views.container}>
             {isReady &&
@@ -89,7 +89,7 @@ class UserScreen extends Component {
                     xlarge
                     rounded
                     icon={{name: 'user', type: 'font-awesome'}}
-                    source={ avatarSource === null ? null : avatarSource}
+                    source={ avatarSource }
                     onPress={() => this.cameraAction()}
                     activeOpacity={0.7}
                   />
@@ -112,23 +112,4 @@ const mapDispatchProps = (dispatch) => {
   return bindActionCreators(actions, dispatch)
 }
 
-// <ImageBackground source={require('../../images/default.jpg')} blurRadius={3} style={views.container}>
-//   {isReady &&
-//     <View style={{ flex: 1}}>
-//       <View style={{alignItems:'center',justifyContent:'center', flex:1}}>
-//         <Avatar
-//           xlarge
-//           rounded
-//           icon={{name: 'user', type: 'font-awesome'}}
-//           source={ avatarSource === null ? null : avatarSource}
-//           onPress={() => this.cameraAction()}
-//           activeOpacity={0.7}
-//         />
-//       </View>
-//       <View style={{ alignItems:'center',justifyContent:'center', flex:1, marginBottom:'10%'}}>
-//         <DisplayWinRate />
-//       </View>
-//     </View>
-//   }
-// </ImageBackground>
 export default connect(mapStateToProps, mapDispatchProps)(UserScreen)

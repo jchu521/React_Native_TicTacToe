@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Sound from'react-native-sound';
+import Sound from 'react-native-sound';
 import I18n from '../../languages/i18n';
 import { Image, TouchableOpacity, View, ImageBackground, AsyncStorage } from 'react-native';
 import { Text } from 'react-native-elements';
 import codePush from 'react-native-code-push'
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import * as actions from '../actions/index';
 import { connect } from 'react-redux';
 import playSoundBundle  from '../utils/sound';
@@ -18,19 +18,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 class MainScreen extends Component {
 
-  componentDidMount(){
-    this._bootstrapAsync();
-
-  }
-
-  _bootstrapAsync = async() => {
-    var AvatarImg = await AsyncStorage.getItem('AvatarImg');
-
-    if(AvatarImg != null || AvatarImg != undefined){
-      this.props.userPhoto(AvatarImg);
-    }
-  };
-
   onClickButton = (screen) => {
     const { navigate } = this.props.navigation;
 
@@ -40,7 +27,7 @@ class MainScreen extends Component {
 
 
   render() {
-    console.log(this);
+
     return (
       <ImageBackground source={require('../../images/default.jpg')} blurRadius={3} style={views.container}>
         <View style={[views.container, {flex: 2}]}>
