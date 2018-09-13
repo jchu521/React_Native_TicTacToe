@@ -77,9 +77,9 @@ export default {
   },
 
   user: {
-    win: '平手',
+    win: '贏',
     loss: '輸',
-    draw: '贏',
+    draw: '平手',
     winRate: '勝率'
   }
 };

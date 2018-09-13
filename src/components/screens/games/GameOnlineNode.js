@@ -246,7 +246,7 @@ class GameOnlineNode extends React.Component {
       });
       this._stopHeartBeat();
       this._setResult(winner,lastStep);
-      // DeviceEventEmitter.emit('refeshWinRate','');
+      DeviceEventEmitter.emit('refeshWinRate','');
     }
     else {
       this.setState({

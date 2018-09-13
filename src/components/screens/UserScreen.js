@@ -57,10 +57,12 @@ class UserScreen extends Component {
   }
 
     saveAvatar = async(source) =>{
+      console.log('source' + source);
       await AsyncStorage.setItem('AvatarImg', source.uri);
       this.setState({
         avatarSource: source
       });
+      console.log('Save Img' + source.uri);
     }
 
     componentDidMount(){
@@ -69,7 +71,10 @@ class UserScreen extends Component {
 
     _bootstrapAsync = async() =>{
       // const { photo } = this.props.user;
+      console.log('Test');
       var AvatarImg = await AsyncStorage.getItem('AvatarImg');
+      console.log('GET Img' + AvatarImg);
+
       if(AvatarImg != null || AvatarImg != undefined){
         this.setState({
           avatarSource: {uri: AvatarImg},
