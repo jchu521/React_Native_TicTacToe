@@ -46,6 +46,9 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6B2D53C62141FE4000C72F37 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B2D53982141FE4000C72F37 /* GamjaFlower-Regular.ttf */; };
 		6B857DDA21486515009F1ED6 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B857DD9214864E9009F1ED6 /* libCodePush.a */; };
+		6B9625782149F2BB003601C4 /* click_on.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6B9625472149F2BB003601C4 /* click_on.wav */; };
+		6B9625792149F2BB003601C4 /* button_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6B9625762149F2BB003601C4 /* button_sound.wav */; };
+		6B96257A2149F2BB003601C4 /* toggle_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6B9625772149F2BB003601C4 /* toggle_sound.wav */; };
 		6BC620DA20E722F500452168 /* Dimbo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BC620B120E722F500452168 /* Dimbo.ttf */; };
 		6BC6211220E724CB00452168 /* PatuaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BC620E920E724CB00452168 /* PatuaOne-Regular.ttf */; };
 		6FB7F985EA3142B7ADBCF349 /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D6B98D6D6B430DA348A648 /* libRNI18n-tvOS.a */; };
@@ -437,6 +440,9 @@
 		6B2D53982141FE4000C72F37 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GamjaFlower-Regular.ttf"; path = "../assest/fonts/GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
 		6B857D6321485EC6009F1ED6 /* CodePush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CodePush.h; path = "../node_modules/react-native-code-push/ios/CodePush/CodePush.h"; sourceTree = "<group>"; };
 		6B857DD1214864E9009F1ED6 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
+		6B9625472149F2BB003601C4 /* click_on.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click_on.wav; path = ../android/app/src/main/res/raw/click_on.wav; sourceTree = "<group>"; };
+		6B9625762149F2BB003601C4 /* button_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = button_sound.wav; path = ../android/app/src/main/res/raw/button_sound.wav; sourceTree = "<group>"; };
+		6B9625772149F2BB003601C4 /* toggle_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = toggle_sound.wav; path = ../android/app/src/main/res/raw/toggle_sound.wav; sourceTree = "<group>"; };
 		6BC620B120E722F500452168 /* Dimbo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dimbo.ttf; path = ../assest/fonts/Dimbo.ttf; sourceTree = "<group>"; };
 		6BC620E920E724CB00452168 /* PatuaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatuaOne-Regular.ttf"; path = "../assest/fonts/PatuaOne-Regular.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -795,6 +801,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				6B9625762149F2BB003601C4 /* button_sound.wav */,
+				6B9625472149F2BB003601C4 /* click_on.wav */,
+				6B9625772149F2BB003601C4 /* toggle_sound.wav */,
 				13B07FAE1A68108700A75B9A /* tictactoe */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* tictactoeTests */,
@@ -1364,6 +1373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				6B96257A2149F2BB003601C4 /* toggle_sound.wav in Resources */,
 				6B2D53C62141FE4000C72F37 /* GamjaFlower-Regular.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				57A08C6686BF4EBDB8E560A9 /* Entypo.ttf in Resources */,
@@ -1371,9 +1381,11 @@
 				6BC620DA20E722F500452168 /* Dimbo.ttf in Resources */,
 				6BC6211220E724CB00452168 /* PatuaOne-Regular.ttf in Resources */,
 				EB79BC89103D45DE8BA0C288 /* Feather.ttf in Resources */,
+				6B9625792149F2BB003601C4 /* button_sound.wav in Resources */,
 				D211B8894F9E480382A06639 /* FontAwesome.ttf in Resources */,
 				37E8F42B82794E4CA7AFC741 /* Foundation.ttf in Resources */,
 				1E15F09503F74BB9A7607516 /* Ionicons.ttf in Resources */,
+				6B9625782149F2BB003601C4 /* click_on.wav in Resources */,
 				5DDF58CFC6F34163BFC78236 /* MaterialCommunityIcons.ttf in Resources */,
 				CA467E3D0E1840758CC51AB2 /* MaterialIcons.ttf in Resources */,
 				966E950E79664224B4E84F9D /* Octicons.ttf in Resources */,
